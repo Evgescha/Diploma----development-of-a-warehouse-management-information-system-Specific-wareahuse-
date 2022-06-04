@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Product));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
@@ -44,14 +45,33 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.databaseDataSet = new SchemaStore.DatabaseDataSet();
+            this.товарBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.товарTableAdapter = new SchemaStore.DatabaseDataSetTableAdapters.ТоварTableAdapter();
+            this.нНDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.наименованиеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.сокращенноDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ценаBYNБезНдсDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ценаRUBБезНдсDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.приЗаказе19DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.приЗаказе1049DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.приЗаказе5099DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.приЗаказеОт100DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.товарBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -59,29 +79,54 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.dataGridView2);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.bindingNavigator1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 50);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1001, 280);
+            this.groupBox1.Size = new System.Drawing.Size(1001, 282);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Товары";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(6, 136);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(989, 140);
+            this.dataGridView2.TabIndex = 6;
+            this.dataGridView2.Visible = false;
             // 
             // dataGridView1
             // 
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.нНDataGridViewTextBoxColumn,
+            this.наименованиеDataGridViewTextBoxColumn,
+            this.сокращенноDataGridViewTextBoxColumn,
+            this.ценаBYNБезНдсDataGridViewTextBoxColumn,
+            this.ценаRUBБезНдсDataGridViewTextBoxColumn,
+            this.приЗаказе19DataGridViewTextBoxColumn,
+            this.приЗаказе1049DataGridViewTextBoxColumn,
+            this.приЗаказе5099DataGridViewTextBoxColumn,
+            this.приЗаказеОт100DataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.товарBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(6, 44);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(989, 230);
+            this.dataGridView1.Size = new System.Drawing.Size(989, 232);
             this.dataGridView1.TabIndex = 1;
             // 
             // bindingNavigator1
             // 
             this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.bindingNavigator1.BindingSource = this.товарBindingSource;
             this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
             this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
             this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -193,20 +238,31 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // saveToolStripButton
+            // 
+            this.saveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
+            this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.saveToolStripButton.Name = "saveToolStripButton";
+            this.saveToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.saveToolStripButton.Text = "&Save";
+            this.saveToolStripButton.Click += new System.EventHandler(this.saveToolStripButton_Click);
+            // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Location = new System.Drawing.Point(18, 309);
+            this.button1.Location = new System.Drawing.Point(18, 349);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(164, 40);
             this.button1.TabIndex = 2;
             this.button1.Text = "Обновить прайс из файла";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Location = new System.Drawing.Point(232, 309);
+            this.button2.Location = new System.Drawing.Point(232, 349);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(164, 40);
             this.button2.TabIndex = 3;
@@ -216,40 +272,148 @@
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(846, 309);
+            this.button4.Location = new System.Drawing.Point(846, 349);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(164, 40);
             this.button4.TabIndex = 5;
             this.button4.Text = "Назад";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // saveToolStripButton
+            // databaseDataSet
             // 
-            this.saveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
-            this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.saveToolStripButton.Name = "saveToolStripButton";
-            this.saveToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.saveToolStripButton.Text = "&Save";
+            this.databaseDataSet.DataSetName = "DatabaseDataSet";
+            this.databaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // товарBindingSource
+            // 
+            this.товарBindingSource.DataMember = "Товар";
+            this.товарBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // товарTableAdapter
+            // 
+            this.товарTableAdapter.ClearBeforeFill = true;
+            // 
+            // нНDataGridViewTextBoxColumn
+            // 
+            this.нНDataGridViewTextBoxColumn.DataPropertyName = "НН";
+            this.нНDataGridViewTextBoxColumn.HeaderText = "НН";
+            this.нНDataGridViewTextBoxColumn.Name = "нНDataGridViewTextBoxColumn";
+            // 
+            // наименованиеDataGridViewTextBoxColumn
+            // 
+            this.наименованиеDataGridViewTextBoxColumn.DataPropertyName = "Наименование";
+            this.наименованиеDataGridViewTextBoxColumn.HeaderText = "Наименование";
+            this.наименованиеDataGridViewTextBoxColumn.Name = "наименованиеDataGridViewTextBoxColumn";
+            // 
+            // сокращенноDataGridViewTextBoxColumn
+            // 
+            this.сокращенноDataGridViewTextBoxColumn.DataPropertyName = "Сокращенно";
+            this.сокращенноDataGridViewTextBoxColumn.HeaderText = "Сокращенно";
+            this.сокращенноDataGridViewTextBoxColumn.Name = "сокращенноDataGridViewTextBoxColumn";
+            // 
+            // ценаBYNБезНдсDataGridViewTextBoxColumn
+            // 
+            this.ценаBYNБезНдсDataGridViewTextBoxColumn.DataPropertyName = "ЦенаBYNБезНдс";
+            this.ценаBYNБезНдсDataGridViewTextBoxColumn.HeaderText = "ЦенаBYNБезНдс";
+            this.ценаBYNБезНдсDataGridViewTextBoxColumn.Name = "ценаBYNБезНдсDataGridViewTextBoxColumn";
+            // 
+            // ценаRUBБезНдсDataGridViewTextBoxColumn
+            // 
+            this.ценаRUBБезНдсDataGridViewTextBoxColumn.DataPropertyName = "ЦенаRUBБезНдс";
+            this.ценаRUBБезНдсDataGridViewTextBoxColumn.HeaderText = "ЦенаRUBБезНдс";
+            this.ценаRUBБезНдсDataGridViewTextBoxColumn.Name = "ценаRUBБезНдсDataGridViewTextBoxColumn";
+            // 
+            // приЗаказе19DataGridViewTextBoxColumn
+            // 
+            this.приЗаказе19DataGridViewTextBoxColumn.DataPropertyName = "ПриЗаказе1-9";
+            this.приЗаказе19DataGridViewTextBoxColumn.HeaderText = "ПриЗаказе1-9";
+            this.приЗаказе19DataGridViewTextBoxColumn.Name = "приЗаказе19DataGridViewTextBoxColumn";
+            // 
+            // приЗаказе1049DataGridViewTextBoxColumn
+            // 
+            this.приЗаказе1049DataGridViewTextBoxColumn.DataPropertyName = "ПриЗаказе10-49";
+            this.приЗаказе1049DataGridViewTextBoxColumn.HeaderText = "ПриЗаказе10-49";
+            this.приЗаказе1049DataGridViewTextBoxColumn.Name = "приЗаказе1049DataGridViewTextBoxColumn";
+            // 
+            // приЗаказе5099DataGridViewTextBoxColumn
+            // 
+            this.приЗаказе5099DataGridViewTextBoxColumn.DataPropertyName = "ПриЗаказе50-99";
+            this.приЗаказе5099DataGridViewTextBoxColumn.HeaderText = "ПриЗаказе50-99";
+            this.приЗаказе5099DataGridViewTextBoxColumn.Name = "приЗаказе5099DataGridViewTextBoxColumn";
+            // 
+            // приЗаказеОт100DataGridViewTextBoxColumn
+            // 
+            this.приЗаказеОт100DataGridViewTextBoxColumn.DataPropertyName = "ПриЗаказеОт100";
+            this.приЗаказеОт100DataGridViewTextBoxColumn.HeaderText = "ПриЗаказеОт100";
+            this.приЗаказеОт100DataGridViewTextBoxColumn.Name = "приЗаказеОт100DataGridViewTextBoxColumn";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(133, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Поиск по наименованию";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(154, 15);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 7;
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button3.Location = new System.Drawing.Point(270, 10);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(95, 29);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "Поиск";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button5
+            // 
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button5.Location = new System.Drawing.Point(371, 10);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(106, 29);
+            this.button5.TabIndex = 9;
+            this.button5.Text = "Сброс";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1025, 357);
+            this.ClientSize = new System.Drawing.Size(1025, 397);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Product";
             this.Text = "Прайс/Товары";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Product_FormClosing);
+            this.Load += new System.EventHandler(this.Product_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.товарBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -273,5 +437,22 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ToolStripButton saveToolStripButton;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private DatabaseDataSet databaseDataSet;
+        private System.Windows.Forms.BindingSource товарBindingSource;
+        private DatabaseDataSetTableAdapters.ТоварTableAdapter товарTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn нНDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn наименованиеDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn сокращенноDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ценаBYNБезНдсDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ценаRUBБезНдсDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn приЗаказе19DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn приЗаказе1049DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn приЗаказе5099DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn приЗаказеОт100DataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button5;
     }
 }

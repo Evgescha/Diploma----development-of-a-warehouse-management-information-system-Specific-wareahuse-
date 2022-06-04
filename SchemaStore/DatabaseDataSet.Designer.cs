@@ -2453,10 +2453,10 @@ namespace SchemaStore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ТоварRow AddТоварRow(string Наименование, string Сокращенно, decimal ЦенаBYNБезНдс, decimal ЦенаRUBБезНдс, decimal _ПриЗаказе1_9, decimal _ПриЗаказе10_49, decimal _ПриЗаказе50_99, decimal ПриЗаказеОт100) {
+            public ТоварRow AddТоварRow(int НН, string Наименование, string Сокращенно, decimal ЦенаBYNБезНдс, decimal ЦенаRUBБезНдс, decimal _ПриЗаказе1_9, decimal _ПриЗаказе10_49, decimal _ПриЗаказе50_99, decimal ПриЗаказеОт100) {
                 ТоварRow rowТоварRow = ((ТоварRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
+                        НН,
                         Наименование,
                         Сокращенно,
                         ЦенаBYNБезНдс,
@@ -2534,9 +2534,6 @@ namespace SchemaStore {
                 base.Columns.Add(this.columnПриЗаказеОт100);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnНН}, true));
-                this.columnНН.AutoIncrement = true;
-                this.columnНН.AutoIncrementSeed = -1;
-                this.columnНН.AutoIncrementStep = -1;
                 this.columnНН.AllowDBNull = false;
                 this.columnНН.Unique = true;
                 this.columnНаименование.MaxLength = 255;
@@ -8104,10 +8101,11 @@ namespace SchemaStore.DatabaseDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ПриЗаказеОт100", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ПриЗаказеОт100", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Товар` (`Наименование`, `Сокращенно`, `ЦенаBYNБезНдс`, `ЦенаRUBБезНд" +
-                "с`, `ПриЗаказе1-9`, `ПриЗаказе10-49`, `ПриЗаказе50-99`, `ПриЗаказеОт100`) VALUES" +
-                " (?, ?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Товар` (`НН`, `Наименование`, `Сокращенно`, `ЦенаBYNБезНдс`, `ЦенаRU" +
+                "BБезНдс`, `ПриЗаказе1-9`, `ПриЗаказе10-49`, `ПриЗаказе50-99`, `ПриЗаказеОт100`) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("НН", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "НН", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Наименование", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Наименование", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Сокращенно", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Сокращенно", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ЦенаBYNБезНдс", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ЦенаBYNБезНдс", global::System.Data.DataRowVersion.Current, false, null));
@@ -8118,8 +8116,9 @@ namespace SchemaStore.DatabaseDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ПриЗаказеОт100", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ПриЗаказеОт100", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Товар` SET `Наименование` = ?, `Сокращенно` = ?, `ЦенаBYNБезНдс` = ?, `ЦенаRUBБезНдс` = ?, `ПриЗаказе1-9` = ?, `ПриЗаказе10-49` = ?, `ПриЗаказе50-99` = ?, `ПриЗаказеОт100` = ? WHERE ((`НН` = ?) AND ((? = 1 AND `Наименование` IS NULL) OR (`Наименование` = ?)) AND ((? = 1 AND `Сокращенно` IS NULL) OR (`Сокращенно` = ?)) AND ((? = 1 AND `ЦенаBYNБезНдс` IS NULL) OR (`ЦенаBYNБезНдс` = ?)) AND ((? = 1 AND `ЦенаRUBБезНдс` IS NULL) OR (`ЦенаRUBБезНдс` = ?)) AND ((? = 1 AND `ПриЗаказе1-9` IS NULL) OR (`ПриЗаказе1-9` = ?)) AND ((? = 1 AND `ПриЗаказе10-49` IS NULL) OR (`ПриЗаказе10-49` = ?)) AND ((? = 1 AND `ПриЗаказе50-99` IS NULL) OR (`ПриЗаказе50-99` = ?)) AND ((? = 1 AND `ПриЗаказеОт100` IS NULL) OR (`ПриЗаказеОт100` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Товар` SET `НН` = ?, `Наименование` = ?, `Сокращенно` = ?, `ЦенаBYNБезНдс` = ?, `ЦенаRUBБезНдс` = ?, `ПриЗаказе1-9` = ?, `ПриЗаказе10-49` = ?, `ПриЗаказе50-99` = ?, `ПриЗаказеОт100` = ? WHERE ((`НН` = ?) AND ((? = 1 AND `Наименование` IS NULL) OR (`Наименование` = ?)) AND ((? = 1 AND `Сокращенно` IS NULL) OR (`Сокращенно` = ?)) AND ((? = 1 AND `ЦенаBYNБезНдс` IS NULL) OR (`ЦенаBYNБезНдс` = ?)) AND ((? = 1 AND `ЦенаRUBБезНдс` IS NULL) OR (`ЦенаRUBБезНдс` = ?)) AND ((? = 1 AND `ПриЗаказе1-9` IS NULL) OR (`ПриЗаказе1-9` = ?)) AND ((? = 1 AND `ПриЗаказе10-49` IS NULL) OR (`ПриЗаказе10-49` = ?)) AND ((? = 1 AND `ПриЗаказе50-99` IS NULL) OR (`ПриЗаказе50-99` = ?)) AND ((? = 1 AND `ПриЗаказеОт100` IS NULL) OR (`ПриЗаказеОт100` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("НН", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "НН", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Наименование", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Наименование", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Сокращенно", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Сокращенно", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ЦенаBYNБезНдс", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ЦенаBYNБезНдс", global::System.Data.DataRowVersion.Current, false, null));
@@ -8308,54 +8307,55 @@ namespace SchemaStore.DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Наименование, string Сокращенно, global::System.Nullable<decimal> ЦенаBYNБезНдс, global::System.Nullable<decimal> ЦенаRUBБезНдс, global::System.Nullable<decimal> _ПриЗаказе1_9, global::System.Nullable<decimal> _ПриЗаказе10_49, global::System.Nullable<decimal> _ПриЗаказе50_99, global::System.Nullable<decimal> ПриЗаказеОт100) {
+        public virtual int Insert(int НН, string Наименование, string Сокращенно, global::System.Nullable<decimal> ЦенаBYNБезНдс, global::System.Nullable<decimal> ЦенаRUBБезНдс, global::System.Nullable<decimal> _ПриЗаказе1_9, global::System.Nullable<decimal> _ПриЗаказе10_49, global::System.Nullable<decimal> _ПриЗаказе50_99, global::System.Nullable<decimal> ПриЗаказеОт100) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(НН));
             if ((Наименование == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Наименование));
-            }
-            if ((Сокращенно == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Сокращенно));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Наименование));
             }
-            if ((ЦенаBYNБезНдс.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(ЦенаBYNБезНдс.Value));
-            }
-            else {
+            if ((Сокращенно == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((ЦенаRUBБезНдс.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(ЦенаRUBБезНдс.Value));
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Сокращенно));
+            }
+            if ((ЦенаBYNБезНдс.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(ЦенаBYNБезНдс.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((_ПриЗаказе1_9.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(_ПриЗаказе1_9.Value));
+            if ((ЦенаRUBБезНдс.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(ЦенаRUBБезНдс.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((_ПриЗаказе10_49.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(_ПриЗаказе10_49.Value));
+            if ((_ПриЗаказе1_9.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(_ПриЗаказе1_9.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((_ПриЗаказе50_99.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(_ПриЗаказе50_99.Value));
+            if ((_ПриЗаказе10_49.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(_ПриЗаказе10_49.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((ПриЗаказеОт100.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(ПриЗаказеОт100.Value));
+            if ((_ПриЗаказе50_99.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(_ПриЗаказе50_99.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((ПриЗаказеОт100.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((decimal)(ПриЗаказеОт100.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -8369,6 +8369,159 @@ namespace SchemaStore.DatabaseDataSetTableAdapters {
             finally {
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
                     this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    int НН, 
+                    string Наименование, 
+                    string Сокращенно, 
+                    global::System.Nullable<decimal> ЦенаBYNБезНдс, 
+                    global::System.Nullable<decimal> ЦенаRUBБезНдс, 
+                    global::System.Nullable<decimal> _ПриЗаказе1_9, 
+                    global::System.Nullable<decimal> _ПриЗаказе10_49, 
+                    global::System.Nullable<decimal> _ПриЗаказе50_99, 
+                    global::System.Nullable<decimal> ПриЗаказеОт100, 
+                    int Original_НН, 
+                    string Original_Наименование, 
+                    string Original_Сокращенно, 
+                    global::System.Nullable<decimal> Original_ЦенаBYNБезНдс, 
+                    global::System.Nullable<decimal> Original_ЦенаRUBБезНдс, 
+                    global::System.Nullable<decimal> _Original_ПриЗаказе1_9, 
+                    global::System.Nullable<decimal> _Original_ПриЗаказе10_49, 
+                    global::System.Nullable<decimal> _Original_ПриЗаказе50_99, 
+                    global::System.Nullable<decimal> Original_ПриЗаказеОт100) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(НН));
+            if ((Наименование == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Наименование));
+            }
+            if ((Сокращенно == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Сокращенно));
+            }
+            if ((ЦенаBYNБезНдс.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(ЦенаBYNБезНдс.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((ЦенаRUBБезНдс.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(ЦенаRUBБезНдс.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((_ПриЗаказе1_9.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(_ПриЗаказе1_9.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((_ПриЗаказе10_49.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(_ПриЗаказе10_49.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((_ПриЗаказе50_99.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(_ПриЗаказе50_99.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((ПриЗаказеОт100.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(ПриЗаказеОт100.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_НН));
+            if ((Original_Наименование == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Наименование));
+            }
+            if ((Original_Сокращенно == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Сокращенно));
+            }
+            if ((Original_ЦенаBYNБезНдс.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(Original_ЦенаBYNБезНдс.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ЦенаRUBБезНдс.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(Original_ЦенаRUBБезНдс.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            if ((_Original_ПриЗаказе1_9.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((decimal)(_Original_ПриЗаказе1_9.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            if ((_Original_ПриЗаказе10_49.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(_Original_ПриЗаказе10_49.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((_Original_ПриЗаказе50_99.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((decimal)(_Original_ПриЗаказе50_99.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ПриЗаказеОт100.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((decimal)(Original_ПриЗаказеОт100.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
         }
@@ -8395,133 +8548,7 @@ namespace SchemaStore.DatabaseDataSetTableAdapters {
                     global::System.Nullable<decimal> _Original_ПриЗаказе10_49, 
                     global::System.Nullable<decimal> _Original_ПриЗаказе50_99, 
                     global::System.Nullable<decimal> Original_ПриЗаказеОт100) {
-            if ((Наименование == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Наименование));
-            }
-            if ((Сокращенно == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Сокращенно));
-            }
-            if ((ЦенаBYNБезНдс.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(ЦенаBYNБезНдс.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((ЦенаRUBБезНдс.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(ЦенаRUBБезНдс.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((_ПриЗаказе1_9.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(_ПриЗаказе1_9.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((_ПриЗаказе10_49.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(_ПриЗаказе10_49.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((_ПриЗаказе50_99.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(_ПриЗаказе50_99.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((ПриЗаказеОт100.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(ПриЗаказеОт100.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_НН));
-            if ((Original_Наименование == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Наименование));
-            }
-            if ((Original_Сокращенно == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Сокращенно));
-            }
-            if ((Original_ЦенаBYNБезНдс.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(Original_ЦенаBYNБезНдс.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            if ((Original_ЦенаRUBБезНдс.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(Original_ЦенаRUBБезНдс.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            if ((_Original_ПриЗаказе1_9.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(_Original_ПриЗаказе1_9.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            if ((_Original_ПриЗаказе10_49.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(_Original_ПриЗаказе10_49.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            if ((_Original_ПриЗаказе50_99.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((decimal)(_Original_ПриЗаказе50_99.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            if ((Original_ПриЗаказеОт100.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((decimal)(Original_ПриЗаказеОт100.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
+            return this.Update(Original_НН, Наименование, Сокращенно, ЦенаBYNБезНдс, ЦенаRUBБезНдс, _ПриЗаказе1_9, _ПриЗаказе10_49, _ПриЗаказе50_99, ПриЗаказеОт100, Original_НН, Original_Наименование, Original_Сокращенно, Original_ЦенаBYNБезНдс, Original_ЦенаRUBБезНдс, _Original_ПриЗаказе1_9, _Original_ПриЗаказе10_49, _Original_ПриЗаказе50_99, Original_ПриЗаказеОт100);
         }
     }
     
