@@ -8,12 +8,10 @@ namespace SchemaStore
         public static Runner runner;
         public static Product product;
         public static Customer customer;
-        //public static;
-        //public static;
-        //public static;
-        //public static;
-        //public static;
-
+        public static Warehouse warehouse;
+        public static Order order;
+        public static Delivery delivery;
+        
 
         public static void ShowForm()
         {
@@ -46,6 +44,27 @@ namespace SchemaStore
         {
             customer = new Customer();
             customer.Show();
+            HideForm();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            warehouse = new Warehouse();
+            warehouse.Show();
+            HideForm();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            order = new Order();
+            order.Show();
+            HideForm();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            delivery = new Delivery();
+            delivery.Show();
             HideForm();
         }
     }
