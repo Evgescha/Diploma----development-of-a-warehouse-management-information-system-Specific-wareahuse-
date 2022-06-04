@@ -1,6 +1,6 @@
 ﻿namespace SchemaStore
 {
-    partial class Form1
+    partial class Runner
     {
         /// <summary>
         /// Required designer variable.

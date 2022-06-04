@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SchemaStore
 {
-    public partial class Form1 : Form
+    public partial class Runner : Form
     {
-        public Form1()
+        public Runner()
         {
             InitializeComponent();
         }
