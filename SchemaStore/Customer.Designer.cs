@@ -103,6 +103,8 @@
             this.типДоставкиDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.стоимостьСДоставкойDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.грузополучательDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
@@ -140,6 +142,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn,
@@ -414,9 +417,9 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(870, 306);
+            this.button1.Location = new System.Drawing.Point(870, 320);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 40);
+            this.button1.Size = new System.Drawing.Size(164, 32);
             this.button1.TabIndex = 4;
             this.button1.Text = "Подробнее о заказе";
             this.button1.UseVisualStyleBackColor = true;
@@ -463,6 +466,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView3.AutoGenerateColumns = false;
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn2,
@@ -631,30 +635,35 @@
             this.названиеDataGridViewTextBoxColumn1.DataPropertyName = "Название";
             this.названиеDataGridViewTextBoxColumn1.HeaderText = "Название";
             this.названиеDataGridViewTextBoxColumn1.Name = "названиеDataGridViewTextBoxColumn1";
+            this.названиеDataGridViewTextBoxColumn1.Width = 82;
             // 
             // адресDataGridViewTextBoxColumn1
             // 
             this.адресDataGridViewTextBoxColumn1.DataPropertyName = "Адрес";
             this.адресDataGridViewTextBoxColumn1.HeaderText = "Адрес";
             this.адресDataGridViewTextBoxColumn1.Name = "адресDataGridViewTextBoxColumn1";
+            this.адресDataGridViewTextBoxColumn1.Width = 63;
             // 
             // индексDataGridViewTextBoxColumn1
             // 
             this.индексDataGridViewTextBoxColumn1.DataPropertyName = "Индекс";
             this.индексDataGridViewTextBoxColumn1.HeaderText = "Индекс";
             this.индексDataGridViewTextBoxColumn1.Name = "индексDataGridViewTextBoxColumn1";
+            this.индексDataGridViewTextBoxColumn1.Width = 70;
             // 
             // иННDataGridViewTextBoxColumn1
             // 
             this.иННDataGridViewTextBoxColumn1.DataPropertyName = "ИНН";
             this.иННDataGridViewTextBoxColumn1.HeaderText = "ИНН";
             this.иННDataGridViewTextBoxColumn1.Name = "иННDataGridViewTextBoxColumn1";
+            this.иННDataGridViewTextBoxColumn1.Width = 56;
             // 
             // кППDataGridViewTextBoxColumn1
             // 
             this.кППDataGridViewTextBoxColumn1.DataPropertyName = "КПП";
             this.кППDataGridViewTextBoxColumn1.HeaderText = "КПП";
             this.кППDataGridViewTextBoxColumn1.Name = "кППDataGridViewTextBoxColumn1";
+            this.кППDataGridViewTextBoxColumn1.Width = 55;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -668,30 +677,35 @@
             this.названиеDataGridViewTextBoxColumn.DataPropertyName = "Название";
             this.названиеDataGridViewTextBoxColumn.HeaderText = "Название";
             this.названиеDataGridViewTextBoxColumn.Name = "названиеDataGridViewTextBoxColumn";
+            this.названиеDataGridViewTextBoxColumn.Width = 82;
             // 
             // адресDataGridViewTextBoxColumn
             // 
             this.адресDataGridViewTextBoxColumn.DataPropertyName = "Адрес";
             this.адресDataGridViewTextBoxColumn.HeaderText = "Адрес";
             this.адресDataGridViewTextBoxColumn.Name = "адресDataGridViewTextBoxColumn";
+            this.адресDataGridViewTextBoxColumn.Width = 63;
             // 
             // индексDataGridViewTextBoxColumn
             // 
             this.индексDataGridViewTextBoxColumn.DataPropertyName = "Индекс";
             this.индексDataGridViewTextBoxColumn.HeaderText = "Индекс";
             this.индексDataGridViewTextBoxColumn.Name = "индексDataGridViewTextBoxColumn";
+            this.индексDataGridViewTextBoxColumn.Width = 70;
             // 
             // иННDataGridViewTextBoxColumn
             // 
             this.иННDataGridViewTextBoxColumn.DataPropertyName = "ИНН";
             this.иННDataGridViewTextBoxColumn.HeaderText = "ИНН";
             this.иННDataGridViewTextBoxColumn.Name = "иННDataGridViewTextBoxColumn";
+            this.иННDataGridViewTextBoxColumn.Width = 56;
             // 
             // кППDataGridViewTextBoxColumn
             // 
             this.кППDataGridViewTextBoxColumn.DataPropertyName = "КПП";
             this.кППDataGridViewTextBoxColumn.HeaderText = "КПП";
             this.кППDataGridViewTextBoxColumn.Name = "кППDataGridViewTextBoxColumn";
+            this.кППDataGridViewTextBoxColumn.Width = 55;
             // 
             // iDDataGridViewTextBoxColumn1
             // 
@@ -755,17 +769,42 @@
             this.грузополучательDataGridViewTextBoxColumn.HeaderText = "Грузополучатель";
             this.грузополучательDataGridViewTextBoxColumn.Name = "грузополучательDataGridViewTextBoxColumn";
             // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(870, 280);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(164, 34);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Добавить данные заказчика как грузополучателя";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Location = new System.Drawing.Point(867, 229);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(164, 34);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "Назад";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1055, 687);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Customer";
             this.Text = "Заказчики";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Customer_FormClosing);
             this.Load += new System.EventHandler(this.Customer_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -868,5 +907,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn индексDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn иННDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn кППDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
