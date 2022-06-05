@@ -899,7 +899,6 @@ namespace SchemaStore {
                 this.columnСтатус.DefaultValue = ((string)("Предзаказ"));
                 this.columnСтатус.MaxLength = 255;
                 this.columnОбщаяСтоимость.DefaultValue = ((decimal)(0m));
-                this.columnСтоимостьНДС.ReadOnly = true;
                 this.columnТипДоставки.MaxLength = 255;
                 this.columnСтоимостьСДоставкой.DefaultValue = ((decimal)(0m));
             }
@@ -3307,7 +3306,11 @@ namespace SchemaStore {
                                 this.columnIDТовара}, true));
                 this.columnIDТовара.AllowDBNull = false;
                 this.columnIDТовара.Unique = true;
+                this.columnОстаток.DefaultValue = ((int)(0));
                 this._columnГод_сКоличеством_.MaxLength = 255;
+                this.columnПредзаказано.DefaultValue = ((int)(0));
+                this.columnОжидаетсяОтПоставщика.DefaultValue = ((int)(0));
+                this.columnВиртуальныйОстаток.DefaultValue = ((int)(0));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7625,12 +7628,18 @@ namespace SchemaStore.DatabaseDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[2];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT НН, Наименование, Сокращенно, ЦенаBYNБезНдс, ЦенаRUBБезНдс, [ПриЗаказе1-9]" +
                 ", [ПриЗаказе10-49], [ПриЗаказе50-99], ПриЗаказеОт100 FROM Товар";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT НН, Наименование, Сокращенно, ЦенаBYNБезНдс, ЦенаRUBБезНдс, [ПриЗаказе1-9]" +
+                ", [ПриЗаказе10-49], [ПриЗаказе50-99], ПриЗаказеОт100 FROM Товар where НН = ?";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("НН", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "НН", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7655,6 +7664,20 @@ namespace SchemaStore.DatabaseDataSetTableAdapters {
             DatabaseDataSet.ТоварDataTable dataTable = new DatabaseDataSet.ТоварDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByProductId(DatabaseDataSet.ТоварDataTable dataTable, int НН) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(НН));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9587,12 +9610,18 @@ namespace SchemaStore.DatabaseDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[2];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT IDТовара, Остаток, [Год(сКоличеством)], Предзаказано, ОжидаетсяОтПоставщик" +
                 "а, ВиртуальныйОстаток FROM Склад";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT IDТовара, Остаток, [Год(сКоличеством)], Предзаказано, ОжидаетсяОтПоставщик" +
+                "а, ВиртуальныйОстаток FROM Склад where IDТовара = ?";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IDТовара", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IDТовара", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9617,6 +9646,20 @@ namespace SchemaStore.DatabaseDataSetTableAdapters {
             DatabaseDataSet.СкладDataTable dataTable = new DatabaseDataSet.СкладDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByProductId(DatabaseDataSet.СкладDataTable dataTable, int IDТовара) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(IDТовара));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
