@@ -6,6 +6,7 @@ namespace SchemaStore
 {
     public partial class Customer : Form
     {
+        AboutOrder aboutOrder;
         public Customer()
         {
             InitializeComponent();
@@ -14,7 +15,6 @@ namespace SchemaStore
         private void Customer_Load(object sender, EventArgs e)
         {
             loadData();
-
         }
         public void loadData()
         {
@@ -96,6 +96,36 @@ namespace SchemaStore
         private void Customer_FormClosing(object sender, FormClosingEventArgs e)
         {
             Runner.ShowForm();
+        }
+
+        private void dataGridView2_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+
+        }
+        // about order
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.CurrentRow == null || dataGridView2.RowCount < 1) {
+                MessageBox.Show("Не выбран заказ для просмотра информации");
+                return;
+            }
+
+            int idDeliveryFromSelectedOrder = заказчикГрузополучательBindingSource.Find("ID", int.Parse(dataGridView2.CurrentRow.Cells[9].Value.ToString()));
+            if (idDeliveryFromSelectedOrder == -1) return;
+            comboBox1.SelectedItem = comboBox1.Items[idDeliveryFromSelectedOrder];
+
+            
+            for (int i=0; i<dataGridView3.RowCount; i++) {
+                if (comboBox1.SelectedValue.Equals(dataGridView3[0, i].Value)) {
+                    dataGridView3.ClearSelection();
+                    dataGridView3.CurrentCell = dataGridView3[2, i];
+                    break;
+                }
+            }
+
+            aboutOrder = new AboutOrder(dataGridView1.CurrentRow, dataGridView3.CurrentRow, dataGridView2.CurrentRow);
+            aboutOrder.Show();
+
         }
     }
 }
