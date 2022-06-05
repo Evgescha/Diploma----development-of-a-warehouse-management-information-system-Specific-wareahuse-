@@ -896,8 +896,12 @@ namespace SchemaStore {
                 this.columnID.AutoIncrementStep = -1;
                 this.columnID.AllowDBNull = false;
                 this.columnID.Unique = true;
+                this.columnСтатус.DefaultValue = ((string)("Предзаказ"));
                 this.columnСтатус.MaxLength = 255;
+                this.columnОбщаяСтоимость.DefaultValue = ((decimal)(0m));
+                this.columnСтоимостьНДС.ReadOnly = true;
                 this.columnТипДоставки.MaxLength = 255;
+                this.columnСтоимостьСДоставкой.DefaultValue = ((decimal)(0m));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8209,12 +8213,18 @@ namespace SchemaStore.DatabaseDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[2];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID, Заказ, Товар, Количество, ЦенаНаМоментПродажи, ФактЦенаПродажиЗаШт, Су" +
                 "мма FROM ТоварыЗаказа";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        ID, Заказ, Товар, Количество, ЦенаНаМоментПродажи, ФактЦенаПродажиЗ" +
+                "аШт, Сумма\r\nFROM            ТоварыЗаказа\r\nWHERE        (Заказ = ?)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Заказ", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Заказ", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8239,6 +8249,25 @@ namespace SchemaStore.DatabaseDataSetTableAdapters {
             DatabaseDataSet.ТоварыЗаказаDataTable dataTable = new DatabaseDataSet.ТоварыЗаказаDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByOrderId(DatabaseDataSet.ТоварыЗаказаDataTable dataTable, global::System.Nullable<int> Заказ) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Заказ.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Заказ.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

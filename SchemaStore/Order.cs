@@ -48,7 +48,16 @@ namespace SchemaStore
                "Подтвердите сохранение",
                MessageBoxButtons.YesNo) == DialogResult.Yes)
                 try
-                {
+                {                    
+                    for (int i = 0; i < dataGridView1.RowCount; i++)
+                    {
+                        if (dataGridView1[2, i].Value == null) dataGridView1[2, i].Value = DateTime.Now;
+                        if (dataGridView1[3, i].Value == null) dataGridView1[3, i].Value = "Предзаказ";
+                        if (dataGridView1[5, i].Value == null) dataGridView1[5, i].Value = 0;
+
+                    }
+
+
                     dataGridView1.CurrentCell = null;
                     dataGridView1.EndEdit();
                     заказTableAdapter.Update(databaseDataSet.Заказ);
