@@ -917,6 +917,7 @@
             this.w1.Size = new System.Drawing.Size(15, 13);
             this.w1.TabIndex = 20;
             this.w1.Text = "l1";
+            this.w1.TextChanged += new System.EventHandler(this.w1_TextChanged);
             // 
             // w2
             // 
@@ -926,6 +927,7 @@
             this.w2.Size = new System.Drawing.Size(15, 13);
             this.w2.TabIndex = 21;
             this.w2.Text = "l2";
+            this.w2.TextChanged += new System.EventHandler(this.w1_TextChanged);
             // 
             // dataGridView3
             // 
@@ -1016,6 +1018,7 @@
             this.w3.Size = new System.Drawing.Size(15, 13);
             this.w3.TabIndex = 24;
             this.w3.Text = "l2";
+            this.w3.TextChanged += new System.EventHandler(this.w1_TextChanged);
             // 
             // label8
             // 
@@ -1034,6 +1037,7 @@
             this.w4.Size = new System.Drawing.Size(15, 13);
             this.w4.TabIndex = 26;
             this.w4.Text = "l2";
+            this.w4.TextChanged += new System.EventHandler(this.w1_TextChanged);
             // 
             // товарTableAdapter
             // 

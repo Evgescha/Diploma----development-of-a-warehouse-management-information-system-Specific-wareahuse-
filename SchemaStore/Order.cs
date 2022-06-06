@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SchemaStore
@@ -265,8 +266,8 @@ namespace SchemaStore
                 {
                     addCountPreorderProductInWarehouseOrAddNewLine(productNN, -count);
                 }
-
-                updateVirtualRemainsInWarehouse();
+                
+            updateVirtualRemainsInWarehouse();
                 updateAllSummWithCurrentPrice();
 
             }
@@ -319,6 +320,18 @@ namespace SchemaStore
         private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
 
+        }
+
+        private void w1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                w1.ForeColor = int.Parse(w1.Text) < 0 ? Color.Red : Color.Black;
+                w2.ForeColor = int.Parse(w2.Text) < 0 ? Color.Red : Color.Black;
+                w3.ForeColor = int.Parse(w3.Text) < 0 ? Color.Red : Color.Black;
+                w4.ForeColor = int.Parse(w4.Text) < 0 ? Color.Red : Color.Black;
+            }
+            catch (Exception ex) { }
         }
     }
 }
