@@ -101,10 +101,24 @@ namespace SchemaStore
                 addCountPreorderProductInWarehouseOrAddNewLine(int.Parse(comboBox1.SelectedValue.ToString()), count);
             }
 
+            updateVirtualRemainsInWarehouse();
+
             updateAllSummWithCurrentPrice();
 
             loadData();
             comboBox1_SelectedIndexChanged(null, null);
+        }
+
+        private void updateVirtualRemainsInWarehouse()
+        {
+            if (dataGridView3.RowCount != 0)
+            {
+                int virtualGet = int.Parse(dataGridView3[4, 0].Value.ToString());
+                int virtualSell = int.Parse(dataGridView3[3, 0].Value.ToString());
+                dataGridView3[5, 0].Value = virtualGet - virtualSell;
+                складBindingSource.EndEdit();
+                складTableAdapter.Update(databaseDataSet.Склад);
+            }
         }
 
         private void updateAllSummWithCurrentPrice()
@@ -252,6 +266,7 @@ namespace SchemaStore
                     addCountPreorderProductInWarehouseOrAddNewLine(productNN, -count);
                 }
 
+                updateVirtualRemainsInWarehouse();
                 updateAllSummWithCurrentPrice();
 
             }
