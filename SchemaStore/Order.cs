@@ -89,11 +89,16 @@ namespace SchemaStore
 
             addNewProductInOrderProductTable();
 
+            int count = int.Parse(textBox1.Text);
             //update count product on warehause if order not in preorder
             if (!dataGridView1.CurrentRow.Cells[3].Value.Equals("Предзаказ"))
             {
-                int count = int.Parse(textBox1.Text);
                 removeCountProductFromWarehouseOrAddNewLine(int.Parse(comboBox1.SelectedValue.ToString()), count);
+            }
+            //update count pre-ordering product on warehause if order status is preorder
+            if (dataGridView1.CurrentRow.Cells[3].Value.Equals("Предзаказ"))
+            {
+                addCountPreorderProductInWarehouseOrAddNewLine(int.Parse(comboBox1.SelectedValue.ToString()), count);
             }
 
             updateAllSummWithCurrentPrice();
@@ -149,7 +154,27 @@ namespace SchemaStore
                 row[1] = -count;
                 складBindingSource.EndEdit();
                 складTableAdapter.Update(databaseDataSet.Склад);
+            }
+        }
 
+
+        private void addCountPreorderProductInWarehouseOrAddNewLine(int productNN, int count)
+        {
+            //add new line
+            if (dataGridView3.RowCount != 0)
+            {
+                dataGridView3[3, 0].Value = int.Parse(dataGridView3[3, 0].Value.ToString()) + count;
+                складBindingSource.EndEdit();
+                складTableAdapter.Update(databaseDataSet.Склад);
+            }
+            //edit current line
+            else
+            {
+                DataRowView row = (DataRowView)складBindingSource.AddNew();
+                row[0] = productNN;
+                row[3] = count;
+                складBindingSource.EndEdit();
+                складTableAdapter.Update(databaseDataSet.Склад);
             }
 
         }
@@ -219,6 +244,12 @@ namespace SchemaStore
                 if (!dataGridView1.CurrentRow.Cells[3].Value.Equals("Предзаказ"))
                 {
                     removeCountProductFromWarehouseOrAddNewLine(productNN, -count);
+                }
+
+                //update count pre-ordering product on warehause if order status is preorder
+                if (dataGridView1.CurrentRow.Cells[3].Value.Equals("Предзаказ"))
+                {
+                    addCountPreorderProductInWarehouseOrAddNewLine(productNN, -count);
                 }
 
                 updateAllSummWithCurrentPrice();
