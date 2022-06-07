@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SchemaStore
@@ -54,6 +55,67 @@ namespace SchemaStore
                     loadData();
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if (!Char.IsDigit(number) && number != 8) // цифры, клавиша BackSpace
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (!isAllFill())
+            {
+                MessageBox.Show("Не выбран заказ или не все поля заполнены");
+                return;
+            }
+        }
+        private bool isAllFill()
+        {
+            if (dataGridView1.CurrentRow == null || dataGridView1.RowCount == 0) return false;
+            if (comboBox1.SelectedItem == null || textBox1.Text.Length == 0) return false;
+
+            return true;
+        }
+        // update 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                this.товарTableAdapter.FillByProductId(this.databaseDataSet.Товар, int.Parse(comboBox1.SelectedValue.ToString()));
+                this.складTableAdapter.FillByProductId(this.databaseDataSet.Склад, int.Parse(comboBox1.SelectedValue.ToString()));
+                if (dataGridView3.RowCount > 0)
+                {
+                    w1.Text = int.Parse(dataGridView3[1, 0].Value.ToString()) + "";
+                    w2.Text = int.Parse(dataGridView3[3, 0].Value.ToString()) + "";
+                    w3.Text = int.Parse(dataGridView3[4, 0].Value.ToString()) + "";
+                    w4.Text = int.Parse(dataGridView3[5, 0].Value.ToString()) + "";
+                }
+                else
+                {
+                    w1.Text = "0";
+                    w2.Text = "0";
+                    w3.Text = "0";
+                    w4.Text = "0";
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        private void w1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                w1.ForeColor = int.Parse(w1.Text) < 0 ? Color.Red : Color.Black;
+                w2.ForeColor = int.Parse(w2.Text) < 0 ? Color.Red : Color.Black;
+                w3.ForeColor = int.Parse(w3.Text) < 0 ? Color.Red : Color.Black;
+                w4.ForeColor = int.Parse(w4.Text) < 0 ? Color.Red : Color.Black;
+            }
+            catch (Exception ex) { }
         }
     }
 }

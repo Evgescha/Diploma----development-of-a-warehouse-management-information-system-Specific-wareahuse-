@@ -587,6 +587,7 @@
             this.comboBox1.Size = new System.Drawing.Size(208, 21);
             this.comboBox1.TabIndex = 6;
             this.comboBox1.ValueMember = "НН";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // w4
             // 
@@ -597,6 +598,7 @@
             this.w4.Size = new System.Drawing.Size(15, 13);
             this.w4.TabIndex = 40;
             this.w4.Text = "l2";
+            this.w4.TextChanged += new System.EventHandler(this.w1_TextChanged);
             // 
             // label8
             // 
@@ -617,6 +619,7 @@
             this.w3.Size = new System.Drawing.Size(15, 13);
             this.w3.TabIndex = 38;
             this.w3.Text = "l2";
+            this.w3.TextChanged += new System.EventHandler(this.w1_TextChanged);
             // 
             // label10
             // 
@@ -637,6 +640,7 @@
             this.w2.Size = new System.Drawing.Size(15, 13);
             this.w2.TabIndex = 36;
             this.w2.Text = "l2";
+            this.w2.TextChanged += new System.EventHandler(this.w1_TextChanged);
             // 
             // w1
             // 
@@ -647,6 +651,7 @@
             this.w1.Size = new System.Drawing.Size(15, 13);
             this.w1.TabIndex = 35;
             this.w1.Text = "l1";
+            this.w1.TextChanged += new System.EventHandler(this.w1_TextChanged);
             // 
             // label7
             // 
@@ -717,6 +722,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(219, 20);
             this.textBox1.TabIndex = 28;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label2
             // 
@@ -747,6 +753,7 @@
             this.button4.TabIndex = 41;
             this.button4.Text = "Добавить товар к поставке";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // dataGridView3
             // 
