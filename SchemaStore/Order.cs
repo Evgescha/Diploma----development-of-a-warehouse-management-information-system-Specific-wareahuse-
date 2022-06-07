@@ -130,7 +130,7 @@ namespace SchemaStore
                 newPrice += double.Parse(dataGridView2[6, i].Value.ToString());
             }
 
-            dataGridView1.CurrentRow.Cells[5].Value = newPrice ;
+            dataGridView1.CurrentRow.Cells[5].Value = newPrice;
             dataGridView1.CurrentRow.Cells[6].Value = newPrice * 1.2;
             dataGridView1.EndEdit();
             заказBindingSource.EndEdit();
@@ -266,8 +266,8 @@ namespace SchemaStore
                 {
                     addCountPreorderProductInWarehouseOrAddNewLine(productNN, -count);
                 }
-                
-            updateVirtualRemainsInWarehouse();
+
+                updateVirtualRemainsInWarehouse();
                 updateAllSummWithCurrentPrice();
 
             }
@@ -299,7 +299,7 @@ namespace SchemaStore
 
                 countOrPriceChanged(null, null);
             }
-            catch (Exception ex) {  }
+            catch (Exception ex) { }
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -332,6 +332,98 @@ namespace SchemaStore
                 w4.ForeColor = int.Parse(w4.Text) < 0 ? Color.Red : Color.Black;
             }
             catch (Exception ex) { }
+        }
+        // set status 'preorder'
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.CurrentRow.Cells[3].Value.Equals("Предзаказ"))
+                {
+                    MessageBox.Show("Невозможно сменить статус на тот же");
+                    return;
+                }
+                for (int i = 0; i < dataGridView2.RowCount; i++)
+                {
+                    moveProductFromOrderToPreorderInWarehouse(int.Parse(dataGridView2.Rows[i].Cells[2].Value.ToString()), int.Parse(dataGridView2.Rows[i].Cells[3].Value.ToString()));
+                }
+                //update count of product in labels
+                comboBox1_SelectedIndexChanged(null, null);
+                dataGridView1.CurrentRow.Cells[3].Value = "Предзаказ";
+                dataGridView1.EndEdit();
+                заказTableAdapter.Update(databaseDataSet.Заказ);
+                MessageBox.Show("Смена статуса завершена");
+            }
+            catch (Exception ex) { }
+
+        }
+        // set status order
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.CurrentRow.Cells[3].Value.Equals("Оформлен"))
+                {
+                    MessageBox.Show("Невозможно сменить статус на тот же");
+                    return;
+                }
+                if (dataGridView1.CurrentRow.Cells[3].Value.Equals("Предзаказ"))
+                    for (int i = 0; i < dataGridView2.RowCount; i++)
+                {
+                    moveProductFromPreorderToOrderInWarehouse(int.Parse(dataGridView2.Rows[i].Cells[2].Value.ToString()), int.Parse(dataGridView2.Rows[i].Cells[3].Value.ToString()));
+                }
+                //update count of product in labels
+                comboBox1_SelectedIndexChanged(null, null);
+                dataGridView1.CurrentRow.Cells[3].Value = "Оформлен";
+                dataGridView1.EndEdit();
+                заказTableAdapter.Update(databaseDataSet.Заказ);
+                MessageBox.Show("Смена статуса завершена");
+            }
+            catch (Exception ex) { }
+
+        }
+        //set status 'delivered'
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.CurrentRow.Cells[3].Value.Equals("Отгружен"))
+                {
+                    MessageBox.Show("Невозможно сменить статус на тот же");
+                    return;
+                }
+                if (dataGridView1.CurrentRow.Cells[3].Value.Equals("Предзаказ"))
+                    for (int i = 0; i < dataGridView2.RowCount; i++)
+                    {
+                        moveProductFromPreorderToOrderInWarehouse(int.Parse(dataGridView2.Rows[i].Cells[2].Value.ToString()), int.Parse(dataGridView2.Rows[i].Cells[3].Value.ToString()));
+                    }
+                //update count of product in labels
+                comboBox1_SelectedIndexChanged(null, null);
+                dataGridView1.CurrentRow.Cells[3].Value = "Отгружен";
+                dataGridView1.EndEdit();
+                заказTableAdapter.Update(databaseDataSet.Заказ);
+                MessageBox.Show("Смена статуса завершена");
+            }
+            catch (Exception ex) { }
+        }
+
+        private void moveProductFromPreorderToOrderInWarehouse(int productNN, int count)
+        {
+            this.товарTableAdapter.FillByProductId(this.databaseDataSet1.Товар, productNN);
+            this.складTableAdapter.FillByProductId(this.databaseDataSet.Склад, productNN);
+
+            addCountPreorderProductInWarehouseOrAddNewLine(productNN, -count);
+            removeCountProductFromWarehouseOrAddNewLine(productNN, count);
+            updateVirtualRemainsInWarehouse();
+        }
+        private void moveProductFromOrderToPreorderInWarehouse(int productNN, int count)
+        {
+            this.товарTableAdapter.FillByProductId(this.databaseDataSet1.Товар, productNN);
+            this.складTableAdapter.FillByProductId(this.databaseDataSet.Склад, productNN);
+
+            addCountPreorderProductInWarehouseOrAddNewLine(productNN, count);
+            removeCountProductFromWarehouseOrAddNewLine(productNN, -count);
+            updateVirtualRemainsInWarehouse();
         }
     }
 }
