@@ -2635,6 +2635,7 @@ namespace SchemaStore {
                 this.columnID.AllowDBNull = false;
                 this.columnID.Unique = true;
                 this.columnНомерПоставки.MaxLength = 255;
+                this.columnСтатус.DefaultValue = ((string)("В процессе"));
                 this.columnСтатус.MaxLength = 255;
             }
             
