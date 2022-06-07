@@ -2460,6 +2460,8 @@ namespace SchemaStore {
             
             private global::System.Data.DataColumn columnДатаВыполнения;
             
+            private global::System.Data.DataColumn columnОбщая_сумма;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ПоставкаDataTable() {
@@ -2535,6 +2537,14 @@ namespace SchemaStore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Общая_суммаColumn {
+                get {
+                    return this.columnОбщая_сумма;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2570,14 +2580,15 @@ namespace SchemaStore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ПоставкаRow AddПоставкаRow(string НомерПоставки, System.DateTime ДатаСоздания, string Статус, System.DateTime ДатаВыполнения) {
+            public ПоставкаRow AddПоставкаRow(string НомерПоставки, System.DateTime ДатаСоздания, string Статус, System.DateTime ДатаВыполнения, decimal Общая_сумма) {
                 ПоставкаRow rowПоставкаRow = ((ПоставкаRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         НомерПоставки,
                         ДатаСоздания,
                         Статус,
-                        ДатаВыполнения};
+                        ДатаВыполнения,
+                        Общая_сумма};
                 rowПоставкаRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowПоставкаRow);
                 return rowПоставкаRow;
@@ -2612,6 +2623,7 @@ namespace SchemaStore {
                 this.columnДатаСоздания = base.Columns["ДатаСоздания"];
                 this.columnСтатус = base.Columns["Статус"];
                 this.columnДатаВыполнения = base.Columns["ДатаВыполнения"];
+                this.columnОбщая_сумма = base.Columns["Общая сумма"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2627,6 +2639,8 @@ namespace SchemaStore {
                 base.Columns.Add(this.columnСтатус);
                 this.columnДатаВыполнения = new global::System.Data.DataColumn("ДатаВыполнения", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnДатаВыполнения);
+                this.columnОбщая_сумма = new global::System.Data.DataColumn("Общая сумма", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnОбщая_сумма);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -2637,6 +2651,7 @@ namespace SchemaStore {
                 this.columnНомерПоставки.MaxLength = 255;
                 this.columnСтатус.DefaultValue = ((string)("В процессе"));
                 this.columnСтатус.MaxLength = 255;
+                this.columnОбщая_сумма.DefaultValue = ((decimal)(0m));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5028,6 +5043,22 @@ namespace SchemaStore {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal Общая_сумма {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableПоставка.Общая_суммаColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Общая сумма\' in table \'Поставка\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableПоставка.Общая_суммаColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsНомерПоставкиNull() {
                 return this.IsNull(this.tableПоставка.НомерПоставкиColumn);
             }
@@ -5072,6 +5103,18 @@ namespace SchemaStore {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetДатаВыполненияNull() {
                 this[this.tableПоставка.ДатаВыполненияColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsОбщая_суммаNull() {
+                return this.IsNull(this.tableПоставка.Общая_суммаColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetОбщая_суммаNull() {
+                this[this.tableПоставка.Общая_суммаColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8683,10 +8726,11 @@ namespace SchemaStore.DatabaseDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("ДатаСоздания", "ДатаСоздания");
             tableMapping.ColumnMappings.Add("Статус", "Статус");
             tableMapping.ColumnMappings.Add("ДатаВыполнения", "ДатаВыполнения");
+            tableMapping.ColumnMappings.Add("Общая сумма", "Общая сумма");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Поставка` WHERE ((`ID` = ?) AND ((? = 1 AND `НомерПоставки` IS NULL) OR (`НомерПоставки` = ?)) AND ((? = 1 AND `ДатаСоздания` IS NULL) OR (`ДатаСоздания` = ?)) AND ((? = 1 AND `Статус` IS NULL) OR (`Статус` = ?)) AND ((? = 1 AND `ДатаВыполнения` IS NULL) OR (`ДатаВыполнения` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Поставка` WHERE ((`ID` = ?) AND ((? = 1 AND `НомерПоставки` IS NULL) OR (`НомерПоставки` = ?)) AND ((? = 1 AND `ДатаСоздания` IS NULL) OR (`ДатаСоздания` = ?)) AND ((? = 1 AND `Статус` IS NULL) OR (`Статус` = ?)) AND ((? = 1 AND `ДатаВыполнения` IS NULL) OR (`ДатаВыполнения` = ?)) AND ((? = 1 AND `Общая сумма` IS NULL) OR (`Общая сумма` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_НомерПоставки", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "НомерПоставки", global::System.Data.DataRowVersion.Original, true, null));
@@ -8697,23 +8741,27 @@ namespace SchemaStore.DatabaseDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Статус", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Статус", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ДатаВыполнения", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ДатаВыполнения", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ДатаВыполнения", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ДатаВыполнения", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Общая_сумма", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Общая сумма", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Общая_сумма", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Общая сумма", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO `Поставка` (`НомерПоставки`, `ДатаСоздания`, `Статус`, `ДатаВыполнени" +
-                "я`) VALUES (?, ?, ?, ?)";
+                "я`, `Общая сумма`) VALUES (?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("НомерПоставки", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "НомерПоставки", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ДатаСоздания", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ДатаСоздания", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Статус", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Статус", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ДатаВыполнения", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ДатаВыполнения", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Общая_сумма", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Общая сумма", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Поставка` SET `НомерПоставки` = ?, `ДатаСоздания` = ?, `Статус` = ?, `ДатаВыполнения` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `НомерПоставки` IS NULL) OR (`НомерПоставки` = ?)) AND ((? = 1 AND `ДатаСоздания` IS NULL) OR (`ДатаСоздания` = ?)) AND ((? = 1 AND `Статус` IS NULL) OR (`Статус` = ?)) AND ((? = 1 AND `ДатаВыполнения` IS NULL) OR (`ДатаВыполнения` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Поставка` SET `НомерПоставки` = ?, `ДатаСоздания` = ?, `Статус` = ?, `ДатаВыполнения` = ?, `Общая сумма` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `НомерПоставки` IS NULL) OR (`НомерПоставки` = ?)) AND ((? = 1 AND `ДатаСоздания` IS NULL) OR (`ДатаСоздания` = ?)) AND ((? = 1 AND `Статус` IS NULL) OR (`Статус` = ?)) AND ((? = 1 AND `ДатаВыполнения` IS NULL) OR (`ДатаВыполнения` = ?)) AND ((? = 1 AND `Общая сумма` IS NULL) OR (`Общая сумма` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("НомерПоставки", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "НомерПоставки", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ДатаСоздания", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ДатаСоздания", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Статус", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Статус", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ДатаВыполнения", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ДатаВыполнения", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Общая_сумма", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Общая сумма", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_НомерПоставки", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "НомерПоставки", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_НомерПоставки", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "НомерПоставки", global::System.Data.DataRowVersion.Original, false, null));
@@ -8723,6 +8771,8 @@ namespace SchemaStore.DatabaseDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Статус", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Статус", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ДатаВыполнения", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ДатаВыполнения", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ДатаВыполнения", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ДатаВыполнения", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Общая_сумма", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Общая сумма", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Общая_сумма", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Общая сумма", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8738,7 +8788,8 @@ namespace SchemaStore.DatabaseDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, НомерПоставки, ДатаСоздания, Статус, ДатаВыполнения FROM Поставка";
+            this._commandCollection[0].CommandText = "SELECT ID, НомерПоставки, ДатаСоздания, Статус, ДатаВыполнения, [Общая сумма] FRO" +
+                "M Поставка";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8799,7 +8850,7 @@ namespace SchemaStore.DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, string Original_НомерПоставки, global::System.Nullable<global::System.DateTime> Original_ДатаСоздания, string Original_Статус, global::System.Nullable<global::System.DateTime> Original_ДатаВыполнения) {
+        public virtual int Delete(int Original_ID, string Original_НомерПоставки, global::System.Nullable<global::System.DateTime> Original_ДатаСоздания, string Original_Статус, global::System.Nullable<global::System.DateTime> Original_ДатаВыполнения, global::System.Nullable<decimal> Original_Общая_сумма) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             if ((Original_НомерПоставки == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -8833,6 +8884,14 @@ namespace SchemaStore.DatabaseDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
+            if ((Original_Общая_сумма.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_Общая_сумма.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8853,7 +8912,7 @@ namespace SchemaStore.DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string НомерПоставки, global::System.Nullable<global::System.DateTime> ДатаСоздания, string Статус, global::System.Nullable<global::System.DateTime> ДатаВыполнения) {
+        public virtual int Insert(string НомерПоставки, global::System.Nullable<global::System.DateTime> ДатаСоздания, string Статус, global::System.Nullable<global::System.DateTime> ДатаВыполнения, global::System.Nullable<decimal> Общая_сумма) {
             if ((НомерПоставки == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -8878,6 +8937,12 @@ namespace SchemaStore.DatabaseDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
+            if ((Общая_сумма.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(Общая_сумма.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8898,7 +8963,7 @@ namespace SchemaStore.DatabaseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string НомерПоставки, global::System.Nullable<global::System.DateTime> ДатаСоздания, string Статус, global::System.Nullable<global::System.DateTime> ДатаВыполнения, int Original_ID, string Original_НомерПоставки, global::System.Nullable<global::System.DateTime> Original_ДатаСоздания, string Original_Статус, global::System.Nullable<global::System.DateTime> Original_ДатаВыполнения) {
+        public virtual int Update(string НомерПоставки, global::System.Nullable<global::System.DateTime> ДатаСоздания, string Статус, global::System.Nullable<global::System.DateTime> ДатаВыполнения, global::System.Nullable<decimal> Общая_сумма, int Original_ID, string Original_НомерПоставки, global::System.Nullable<global::System.DateTime> Original_ДатаСоздания, string Original_Статус, global::System.Nullable<global::System.DateTime> Original_ДатаВыполнения, global::System.Nullable<decimal> Original_Общая_сумма) {
             if ((НомерПоставки == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -8923,38 +8988,52 @@ namespace SchemaStore.DatabaseDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ID));
-            if ((Original_НомерПоставки == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((Общая_сумма.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(Общая_сумма.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_НомерПоставки));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_ID));
+            if ((Original_НомерПоставки == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_НомерПоставки));
             }
             if ((Original_ДатаСоздания.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Original_ДатаСоздания.Value));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_ДатаСоздания.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             if ((Original_Статус == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Статус));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Статус));
             }
             if ((Original_ДатаВыполнения.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(Original_ДатаВыполнения.Value));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(Original_ДатаВыполнения.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Общая_сумма.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(Original_Общая_сумма.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 

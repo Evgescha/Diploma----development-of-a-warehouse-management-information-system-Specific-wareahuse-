@@ -22,20 +22,38 @@ namespace SchemaStore
 
         private void Delivery_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'databaseDataSet.Склад' table. You can move, or remove it, as needed.
-            this.складTableAdapter.Fill(this.databaseDataSet.Склад);
-            // TODO: This line of code loads data into the 'databaseDataSet.Товар' table. You can move, or remove it, as needed.
-            this.товарTableAdapter.Fill(this.databaseDataSet.Товар);
-            // TODO: This line of code loads data into the 'databaseDataSet.ТоварыПоставки' table. You can move, or remove it, as needed.
-            this.товарыПоставкиTableAdapter.Fill(this.databaseDataSet.ТоварыПоставки);
-            // TODO: This line of code loads data into the 'databaseDataSet.Поставка' table. You can move, or remove it, as needed.
-            this.поставкаTableAdapter.Fill(this.databaseDataSet.Поставка);
-
+            loadData();
         }
-
+        private void loadData()
+        {
+            this.складTableAdapter.Fill(this.databaseDataSet.Склад);
+            this.товарTableAdapter.Fill(this.databaseDataSet.Товар);
+            this.поставкаTableAdapter.Fill(this.databaseDataSet.Поставка);
+            this.товарыПоставкиTableAdapter.Fill(this.databaseDataSet.ТоварыПоставки);
+        }
+        // save delivery
         private void saveToolStripButton_Click(object sender, EventArgs e)
         {
 
+            if (MessageBox.Show("Все изменения в системе будут сохранены в базе данных.\r\n" +
+               "Продолжить сохранение?",
+               "Подтвердите сохранение",
+               MessageBoxButtons.YesNo) == DialogResult.Yes)
+                try
+                {
+                    for (int i = 0; i < dataGridView1.RowCount; i++)
+                    {
+                        if (dataGridView1[2, i].Value == null || dataGridView1[2, i].Value.ToString().Length==0) dataGridView1[2, i].Value = DateTime.Now;
+                        if (dataGridView1[3, i].Value == null || dataGridView1[3, i].Value.ToString().Length == 0) dataGridView1[3, i].Value = "В процессе";
+                    }
+
+                    dataGridView1.CurrentCell = null;
+                    dataGridView1.EndEdit();
+                    поставкаTableAdapter.Update(databaseDataSet.Поставка);
+                    MessageBox.Show("Изменения сохранены");
+                    loadData();
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }
