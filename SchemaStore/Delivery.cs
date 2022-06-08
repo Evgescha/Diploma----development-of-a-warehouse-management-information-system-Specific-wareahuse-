@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -23,20 +24,15 @@ namespace SchemaStore
 
         private void Delivery_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'databaseDataSet.Товар' table. You can move, or remove it, as needed.
-            this.товарTableAdapter.Fill(this.databaseDataSet.Товар);
-            // TODO: This line of code loads data into the 'databaseDataSet.Склад' table. You can move, or remove it, as needed.
-            this.складTableAdapter.Fill(this.databaseDataSet.Склад);
-            // TODO: This line of code loads data into the 'databaseDataSet.ТоварыПоставки' table. You can move, or remove it, as needed.
-            this.товарыПоставкиTableAdapter.Fill(this.databaseDataSet.ТоварыПоставки);
-            // TODO: This line of code loads data into the 'databaseDataSet.Поставка' table. You can move, or remove it, as needed.
-            this.поставкаTableAdapter.Fill(this.databaseDataSet.Поставка);
-            // TODO: This line of code loads data into the 'databaseDataSet.СкладТоварНнИНазвание' table. You can move, or remove it, as needed.
-            this.складТоварНнИНазваниеTableAdapter.Fill(this.databaseDataSet.СкладТоварНнИНазвание);
             loadData();
         }
         private void loadData()
         {
+            this.товарTableAdapter.Fill(this.databaseDataSet.Товар);
+            this.складTableAdapter.Fill(this.databaseDataSet.Склад);
+            this.товарыПоставкиTableAdapter.Fill(this.databaseDataSet.ТоварыПоставки);
+            this.поставкаTableAdapter.Fill(this.databaseDataSet.Поставка);
+            this.складТоварНнИНазваниеTableAdapter.Fill(this.databaseDataSet.СкладТоварНнИНазвание);
             comboBox1_SelectedIndexChanged(null, null);
         }
         // save delivery
@@ -57,7 +53,7 @@ namespace SchemaStore
 
                     dataGridView1.CurrentCell = null;
                     dataGridView1.EndEdit();
-                    //поставкаTableAdapter.Update(databaseDataSet.Поставка);
+                    поставкаTableAdapter.Update(databaseDataSet.Поставка);
                     MessageBox.Show("Изменения сохранены");
                     loadData();
                 }
@@ -73,6 +69,7 @@ namespace SchemaStore
             }
         }
 
+        //btn add
         private void button4_Click(object sender, EventArgs e)
         {
             if (!isAllFill())
@@ -80,6 +77,16 @@ namespace SchemaStore
                 MessageBox.Show("Не выбран заказ или не все поля заполнены");
                 return;
             }
+
+
+            int count = int.Parse(textBox1.Text);
+            double price = double.Parse(textBox2.Text);
+            int productNN = int.Parse(comboBox1.SelectedValue.ToString());
+
+            addNewProductInDeliveryProductTable(productNN, count, price);
+
+            addSummToDeliveryOrder(price*count);
+
         }
         private bool isAllFill()
         {
@@ -130,5 +137,38 @@ namespace SchemaStore
             }
             catch (Exception ex) { }
         }
+
+
+
+        private void addNewProductInDeliveryProductTable(int productNN, int count, double price)
+        {
+
+            DataRowView row = (DataRowView)поставкаТоварыПоставкиBindingSource.AddNew();
+            row[2] = productNN;
+            row[3] = count;
+            row[4] = price;
+            row[5] = count*price;
+
+            поставкаТоварыПоставкиBindingSource.EndEdit();
+            товарыПоставкиTableAdapter.Update(databaseDataSet.ТоварыПоставки);
+        }
+
+        private void addSummToDeliveryOrder(double price)
+        {
+
+            try
+            {
+                double priceNow = double.Parse(dataGridView1.CurrentRow.Cells[5].Value.ToString());
+                dataGridView1.CurrentRow.Cells[5].Value = priceNow + price;
+
+                dataGridView1.CurrentCell = null;
+                dataGridView1.EndEdit();
+                поставкаTableAdapter.Update(databaseDataSet.Поставка);
+                MessageBox.Show("Изменения сохранены");
+                loadData();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
     }
 }
