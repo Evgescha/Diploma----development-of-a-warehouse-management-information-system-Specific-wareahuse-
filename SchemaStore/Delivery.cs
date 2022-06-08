@@ -33,7 +33,7 @@ namespace SchemaStore
             this.товарыПоставкиTableAdapter.Fill(this.databaseDataSet.ТоварыПоставки);
             this.поставкаTableAdapter.Fill(this.databaseDataSet.Поставка);
             this.складТоварНнИНазваниеTableAdapter.Fill(this.databaseDataSet.СкладТоварНнИНазвание);
-            comboBox1_SelectedIndexChanged(null, null);
+            updateInfoAboutSelectedPRoduct(null, null);
         }
         // save delivery
         private void saveToolStripButton_Click(object sender, EventArgs e)
@@ -87,7 +87,12 @@ namespace SchemaStore
 
             addSummToDeliveryOrder(price*count);
 
+            addCountPreorderProductInWarehouseOrAddNewLine(productNN, count);
+
+            updateInfoAboutSelectedPRoduct(null, null);
+
         }
+
         private bool isAllFill()
         {
             if (dataGridView1.CurrentRow == null || dataGridView1.RowCount == 0) return false;
@@ -96,7 +101,7 @@ namespace SchemaStore
             return true;
         }
         // update 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void updateInfoAboutSelectedPRoduct(object sender, EventArgs e)
         {
             try
             {
@@ -139,7 +144,6 @@ namespace SchemaStore
         }
 
 
-
         private void addNewProductInDeliveryProductTable(int productNN, int count, double price)
         {
 
@@ -155,7 +159,6 @@ namespace SchemaStore
 
         private void addSummToDeliveryOrder(double price)
         {
-
             try
             {
                 double priceNow = double.Parse(dataGridView1.CurrentRow.Cells[5].Value.ToString());
@@ -164,10 +167,28 @@ namespace SchemaStore
                 dataGridView1.CurrentCell = null;
                 dataGridView1.EndEdit();
                 поставкаTableAdapter.Update(databaseDataSet.Поставка);
-                MessageBox.Show("Изменения сохранены");
-                loadData();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+
+        private void addCountPreorderProductInWarehouseOrAddNewLine(int productNN, int count)
+        {
+            //edit current line
+            if (dataGridView4.RowCount > 1)
+            {
+                dataGridView4.Rows[0].Cells[4].Value= int.Parse(dataGridView4.Rows[0].Cells[4].Value.ToString()) + count;
+            }
+            //add new line
+            else
+            {
+                DataRowView row = (DataRowView)складBindingSource.AddNew();
+                row[0] = productNN;
+                row[4] = count;
+            }
+            складBindingSource.EndEdit();
+            складTableAdapter.Update(databaseDataSet.Склад);
+
         }
 
     }

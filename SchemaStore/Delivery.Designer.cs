@@ -690,7 +690,7 @@
             this.comboBox1.Size = new System.Drawing.Size(219, 21);
             this.comboBox1.TabIndex = 44;
             this.comboBox1.ValueMember = "НН";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.updateInfoAboutSelectedPRoduct);
             // 
             // databaseDataSet
             // 
