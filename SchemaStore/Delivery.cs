@@ -87,8 +87,16 @@ namespace SchemaStore
 
             addSummToDeliveryOrder(price*count);
 
-            addCountPreorderProductInWarehouseOrAddNewLine(productNN, count);
+            if (dataGridView1.CurrentRow.Cells[3].Value.ToString().Equals("В процессе"))
+            {
+                addCountPreorderProductInWarehouseOrAddNewLine(productNN, count);
+            }
+            else
+            {
+                addCountProductToStoreInWarehouseOrAddNewLine(productNN, count);
+            }
 
+            this.товарыПоставкиTableAdapter.Fill(this.databaseDataSet.ТоварыПоставки);
             updateInfoAboutSelectedPRoduct(null, null);
 
         }
@@ -177,7 +185,7 @@ namespace SchemaStore
             //edit current line
             if (dataGridView4.RowCount > 1)
             {
-                dataGridView4.Rows[0].Cells[4].Value= int.Parse(dataGridView4.Rows[0].Cells[4].Value.ToString()) + count;
+                dataGridView4.Rows[0].Cells[4].Value = int.Parse(dataGridView4.Rows[0].Cells[4].Value.ToString()) + count;
             }
             //add new line
             else
@@ -188,8 +196,92 @@ namespace SchemaStore
             }
             складBindingSource.EndEdit();
             складTableAdapter.Update(databaseDataSet.Склад);
-
         }
 
+
+        private void addCountProductToStoreInWarehouseOrAddNewLine(int productNN, int count)
+        {
+            //edit current line
+            if (dataGridView4.RowCount > 1)
+            {
+                dataGridView4.Rows[0].Cells[1].Value = int.Parse(dataGridView4.Rows[0].Cells[1].Value.ToString()) + count;
+            }
+            //add new line
+            else
+            {
+                DataRowView row = (DataRowView)складBindingSource.AddNew();
+                row[0] = productNN;
+                row[1] = count;
+            }
+            складBindingSource.EndEdit();
+            складTableAdapter.Update(databaseDataSet.Склад);
+        }
+        // delete btn
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView2.CurrentRow == null || dataGridView2.Rows.Count == 0)
+                {
+                    MessageBox.Show("Не выбран товар для удаления из заказа");
+                    return;
+                }
+
+                int productNN = int.Parse(dataGridView2.CurrentRow.Cells[2].Value.ToString());
+                int count = int.Parse(dataGridView2.CurrentRow.Cells[3].Value.ToString());
+                double price = double.Parse(dataGridView2.CurrentRow.Cells[5].Value.ToString());
+                price = -1 * price;
+
+                this.складTableAdapter.FillByProductId(this.databaseDataSet.Склад, productNN);
+
+                removeProductInDeliveryProductTable();
+
+                addSummToDeliveryOrder(price * count);
+
+                if (dataGridView1.CurrentRow.Cells[3].Value.ToString().Equals("В процессе"))
+                {
+                    addCountPreorderProductInWarehouseOrAddNewLine(productNN, -count);
+                }
+                else
+                {
+                    addCountProductToStoreInWarehouseOrAddNewLine(productNN, -count);
+                }
+
+                this.товарыПоставкиTableAdapter.Fill(this.databaseDataSet.ТоварыПоставки);
+                updateInfoAboutSelectedPRoduct(null, null);
+            }
+            catch (Exception ex) { }
+        }
+
+        private void removeProductInDeliveryProductTable()
+        {
+            dataGridView2.Rows.Remove(dataGridView2.CurrentRow);
+            поставкаТоварыПоставкиBindingSource.EndEdit();
+            товарыПоставкиTableAdapter.Update(databaseDataSet.ТоварыПоставки);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int count = textBox1.Text.Length == 0 ? 0 : int.Parse(textBox1.Text);
+                double price;
+                if (dataGridView3.RowCount > 0)
+                {
+                    price = double.Parse(dataGridView3[4, 0].Value.ToString());
+                }
+                else
+                {
+                    price = 0;
+                }
+
+                double sum = count * price;
+                textBox4.Text = sum + "";
+            }
+            catch (Exception ex)
+            {
+               
+            }
+        }
     }
 }
