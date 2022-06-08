@@ -23,14 +23,21 @@ namespace SchemaStore
 
         private void Delivery_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.Товар' table. You can move, or remove it, as needed.
+            this.товарTableAdapter.Fill(this.databaseDataSet.Товар);
+            // TODO: This line of code loads data into the 'databaseDataSet.Склад' table. You can move, or remove it, as needed.
+            this.складTableAdapter.Fill(this.databaseDataSet.Склад);
+            // TODO: This line of code loads data into the 'databaseDataSet.ТоварыПоставки' table. You can move, or remove it, as needed.
+            this.товарыПоставкиTableAdapter.Fill(this.databaseDataSet.ТоварыПоставки);
+            // TODO: This line of code loads data into the 'databaseDataSet.Поставка' table. You can move, or remove it, as needed.
+            this.поставкаTableAdapter.Fill(this.databaseDataSet.Поставка);
+            // TODO: This line of code loads data into the 'databaseDataSet.СкладТоварНнИНазвание' table. You can move, or remove it, as needed.
+            this.складТоварНнИНазваниеTableAdapter.Fill(this.databaseDataSet.СкладТоварНнИНазвание);
             loadData();
         }
         private void loadData()
         {
-            this.складTableAdapter.Fill(this.databaseDataSet.Склад);
-            this.товарTableAdapter.Fill(this.databaseDataSet.Товар);
-            this.поставкаTableAdapter.Fill(this.databaseDataSet.Поставка);
-            this.товарыПоставкиTableAdapter.Fill(this.databaseDataSet.ТоварыПоставки);
+            comboBox1_SelectedIndexChanged(null, null);
         }
         // save delivery
         private void saveToolStripButton_Click(object sender, EventArgs e)
@@ -50,7 +57,7 @@ namespace SchemaStore
 
                     dataGridView1.CurrentCell = null;
                     dataGridView1.EndEdit();
-                    поставкаTableAdapter.Update(databaseDataSet.Поставка);
+                    //поставкаTableAdapter.Update(databaseDataSet.Поставка);
                     MessageBox.Show("Изменения сохранены");
                     loadData();
                 }
@@ -88,12 +95,13 @@ namespace SchemaStore
             {
                 this.товарTableAdapter.FillByProductId(this.databaseDataSet.Товар, int.Parse(comboBox1.SelectedValue.ToString()));
                 this.складTableAdapter.FillByProductId(this.databaseDataSet.Склад, int.Parse(comboBox1.SelectedValue.ToString()));
+                textBox2.Text = dataGridView3[4, 0].Value.ToString();
                 if (dataGridView3.RowCount > 0)
                 {
-                    w1.Text = int.Parse(dataGridView3[1, 0].Value.ToString()) + "";
-                    w2.Text = int.Parse(dataGridView3[3, 0].Value.ToString()) + "";
-                    w3.Text = int.Parse(dataGridView3[4, 0].Value.ToString()) + "";
-                    w4.Text = int.Parse(dataGridView3[5, 0].Value.ToString()) + "";
+                    w1.Text = int.Parse(dataGridView4[1, 0].Value.ToString()) + "";
+                    w2.Text = int.Parse(dataGridView4[3, 0].Value.ToString()) + "";
+                    w3.Text = int.Parse(dataGridView4[4, 0].Value.ToString()) + "";
+                    w4.Text = int.Parse(dataGridView4[5, 0].Value.ToString()) + "";
                 }
                 else
                 {
@@ -103,7 +111,12 @@ namespace SchemaStore
                     w4.Text = "0";
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex) {
+                w1.Text = "0";
+                w2.Text = "0";
+                w3.Text = "0";
+                w4.Text = "0";
+            }
         }
 
         private void w1_TextChanged(object sender, EventArgs e)
