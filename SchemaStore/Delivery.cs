@@ -283,5 +283,65 @@ namespace SchemaStore
                
             }
         }
+        // set status 'in progress'
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.CurrentRow.Cells[3].Value.Equals("В процессе"))
+                {
+                    MessageBox.Show("Невозможно сменить статус на тот же");
+                    return;
+                }
+                for (int i = 0; i < dataGridView2.RowCount; i++)
+                {
+                    this.складTableAdapter.FillByProductId(this.databaseDataSet.Склад, int.Parse(dataGridView2.Rows[i].Cells[2].Value.ToString()));
+                    moveProductFromDoneToInProgres(int.Parse(dataGridView2.Rows[i].Cells[2].Value.ToString()), int.Parse(dataGridView2.Rows[i].Cells[3].Value.ToString()));
+                }
+                //update count of product in labels
+                updateInfoAboutSelectedPRoduct(null, null);
+                dataGridView1.CurrentRow.Cells[3].Value = "В процессе";
+                dataGridView1.EndEdit();
+                поставкаTableAdapter.Update(databaseDataSet.Поставка);
+                MessageBox.Show("Смена статуса завершена");
+            }
+            catch (Exception ex) { }
+        }
+
+        private void moveProductFromInProgresToDone(int productNN, int count)
+        {
+            addCountPreorderProductInWarehouseOrAddNewLine(productNN, -count);
+            addCountProductToStoreInWarehouseOrAddNewLine(productNN, count);
+        }
+
+        private void moveProductFromDoneToInProgres(int productNN, int count)
+        {
+            addCountPreorderProductInWarehouseOrAddNewLine(productNN, count);
+            addCountProductToStoreInWarehouseOrAddNewLine(productNN, -count);
+        }
+        // set status "done"
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.CurrentRow.Cells[3].Value.Equals("Выполнено"))
+                {
+                    MessageBox.Show("Невозможно сменить статус на тот же");
+                    return;
+                }
+                for (int i = 0; i < dataGridView2.RowCount; i++)
+                {
+                    this.складTableAdapter.FillByProductId(this.databaseDataSet.Склад, int.Parse(dataGridView2.Rows[i].Cells[2].Value.ToString()));
+                    moveProductFromInProgresToDone(int.Parse(dataGridView2.Rows[i].Cells[2].Value.ToString()), int.Parse(dataGridView2.Rows[i].Cells[3].Value.ToString()));
+                }
+                //update count of product in labels
+                updateInfoAboutSelectedPRoduct(null, null);
+                dataGridView1.CurrentRow.Cells[3].Value = "Выполнено";
+                dataGridView1.EndEdit();
+                поставкаTableAdapter.Update(databaseDataSet.Поставка);
+                MessageBox.Show("Смена статуса завершена");
+            }
+            catch (Exception ex) { }
+        }
     }
 }
