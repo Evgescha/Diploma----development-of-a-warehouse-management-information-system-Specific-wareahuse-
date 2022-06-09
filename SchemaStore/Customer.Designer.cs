@@ -816,6 +816,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.DataSource = this.заказчикГрузополучательBindingSource;
             this.comboBox1.DisplayMember = "Название";
             this.comboBox1.FormattingEnabled = true;
