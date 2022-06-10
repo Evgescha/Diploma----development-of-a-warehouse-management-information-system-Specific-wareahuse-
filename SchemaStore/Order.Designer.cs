@@ -946,10 +946,10 @@
             this.ожидаетсяОтПоставщикаDataGridViewTextBoxColumn,
             this.виртуальныйОстатокDataGridViewTextBoxColumn});
             this.dataGridView3.DataSource = this.складBindingSource;
-            this.dataGridView3.Location = new System.Drawing.Point(442, 224);
+            this.dataGridView3.Location = new System.Drawing.Point(491, 237);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.Size = new System.Drawing.Size(666, 74);
+            this.dataGridView3.Size = new System.Drawing.Size(617, 61);
             this.dataGridView3.TabIndex = 22;
             this.dataGridView3.Visible = false;
             // 

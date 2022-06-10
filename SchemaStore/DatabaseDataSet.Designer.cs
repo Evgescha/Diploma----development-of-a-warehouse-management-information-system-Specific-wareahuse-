@@ -42,6 +42,10 @@ namespace SchemaStore {
         
         private СкладТоварНнИНазваниеDataTable tableСкладТоварНнИНазвание;
         
+        private ПроданныеТоварыDataTable tableПроданныеТовары;
+        
+        private ЗакупленныеТоварыDataTable tableЗакупленныеТовары;
+        
         private global::System.Data.DataRelation relationЗаказчикГрузополучательЗаказ;
         
         private global::System.Data.DataRelation relationЗаказчикЗаказ;
@@ -63,6 +67,14 @@ namespace SchemaStore {
         private global::System.Data.DataRelation relationТоварТоварыПоставки1;
         
         private global::System.Data.DataRelation relationТоварСклад1;
+        
+        private global::System.Data.DataRelation relationТоварТоварыЗаказа2;
+        
+        private global::System.Data.DataRelation relationТоварТоварыЗаказа3;
+        
+        private global::System.Data.DataRelation relationТоварТоварыПоставки2;
+        
+        private global::System.Data.DataRelation relationТоварТоварыПоставки3;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -118,6 +130,12 @@ namespace SchemaStore {
                 }
                 if ((ds.Tables["СкладТоварНнИНазвание"] != null)) {
                     base.Tables.Add(new СкладТоварНнИНазваниеDataTable(ds.Tables["СкладТоварНнИНазвание"]));
+                }
+                if ((ds.Tables["ПроданныеТовары"] != null)) {
+                    base.Tables.Add(new ПроданныеТоварыDataTable(ds.Tables["ПроданныеТовары"]));
+                }
+                if ((ds.Tables["ЗакупленныеТовары"] != null)) {
+                    base.Tables.Add(new ЗакупленныеТоварыDataTable(ds.Tables["ЗакупленныеТовары"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -229,6 +247,26 @@ namespace SchemaStore {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public ПроданныеТоварыDataTable ПроданныеТовары {
+            get {
+                return this.tableПроданныеТовары;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public ЗакупленныеТоварыDataTable ЗакупленныеТовары {
+            get {
+                return this.tableЗакупленныеТовары;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -321,6 +359,12 @@ namespace SchemaStore {
                 if ((ds.Tables["СкладТоварНнИНазвание"] != null)) {
                     base.Tables.Add(new СкладТоварНнИНазваниеDataTable(ds.Tables["СкладТоварНнИНазвание"]));
                 }
+                if ((ds.Tables["ПроданныеТовары"] != null)) {
+                    base.Tables.Add(new ПроданныеТоварыDataTable(ds.Tables["ПроданныеТовары"]));
+                }
+                if ((ds.Tables["ЗакупленныеТовары"] != null)) {
+                    base.Tables.Add(new ЗакупленныеТоварыDataTable(ds.Tables["ЗакупленныеТовары"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -408,6 +452,18 @@ namespace SchemaStore {
                     this.tableСкладТоварНнИНазвание.InitVars();
                 }
             }
+            this.tableПроданныеТовары = ((ПроданныеТоварыDataTable)(base.Tables["ПроданныеТовары"]));
+            if ((initTable == true)) {
+                if ((this.tableПроданныеТовары != null)) {
+                    this.tableПроданныеТовары.InitVars();
+                }
+            }
+            this.tableЗакупленныеТовары = ((ЗакупленныеТоварыDataTable)(base.Tables["ЗакупленныеТовары"]));
+            if ((initTable == true)) {
+                if ((this.tableЗакупленныеТовары != null)) {
+                    this.tableЗакупленныеТовары.InitVars();
+                }
+            }
             this.relationЗаказчикГрузополучательЗаказ = this.Relations["ЗаказчикГрузополучательЗаказ"];
             this.relationЗаказчикЗаказ = this.Relations["ЗаказчикЗаказ"];
             this.relationЗаказчикЗаказчикГрузополучатель = this.Relations["ЗаказчикЗаказчикГрузополучатель"];
@@ -419,6 +475,10 @@ namespace SchemaStore {
             this.relationТоварТоварыЗаказа1 = this.Relations["ТоварТоварыЗаказа1"];
             this.relationТоварТоварыПоставки1 = this.Relations["ТоварТоварыПоставки1"];
             this.relationТоварСклад1 = this.Relations["ТоварСклад1"];
+            this.relationТоварТоварыЗаказа2 = this.Relations["ТоварТоварыЗаказа2"];
+            this.relationТоварТоварыЗаказа3 = this.Relations["ТоварТоварыЗаказа3"];
+            this.relationТоварТоварыПоставки2 = this.Relations["ТоварТоварыПоставки2"];
+            this.relationТоварТоварыПоставки3 = this.Relations["ТоварТоварыПоставки3"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -447,6 +507,10 @@ namespace SchemaStore {
             base.Tables.Add(this.tableСклад);
             this.tableСкладТоварНнИНазвание = new СкладТоварНнИНазваниеDataTable();
             base.Tables.Add(this.tableСкладТоварНнИНазвание);
+            this.tableПроданныеТовары = new ПроданныеТоварыDataTable();
+            base.Tables.Add(this.tableПроданныеТовары);
+            this.tableЗакупленныеТовары = new ЗакупленныеТоварыDataTable();
+            base.Tables.Add(this.tableЗакупленныеТовары);
             this.relationЗаказчикГрузополучательЗаказ = new global::System.Data.DataRelation("ЗаказчикГрузополучательЗаказ", new global::System.Data.DataColumn[] {
                         this.tableЗаказчикГрузополучатель.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableЗаказ.ГрузополучательColumn}, false);
@@ -491,6 +555,22 @@ namespace SchemaStore {
                         this.tableСкладТоварНнИНазвание.ННColumn}, new global::System.Data.DataColumn[] {
                         this.tableСклад.IDТовараColumn}, false);
             this.Relations.Add(this.relationТоварСклад1);
+            this.relationТоварТоварыЗаказа2 = new global::System.Data.DataRelation("ТоварТоварыЗаказа2", new global::System.Data.DataColumn[] {
+                        this.tableТовар.ННColumn}, new global::System.Data.DataColumn[] {
+                        this.tableПроданныеТовары.ТоварColumn}, false);
+            this.Relations.Add(this.relationТоварТоварыЗаказа2);
+            this.relationТоварТоварыЗаказа3 = new global::System.Data.DataRelation("ТоварТоварыЗаказа3", new global::System.Data.DataColumn[] {
+                        this.tableСкладТоварНнИНазвание.ННColumn}, new global::System.Data.DataColumn[] {
+                        this.tableПроданныеТовары.ТоварColumn}, false);
+            this.Relations.Add(this.relationТоварТоварыЗаказа3);
+            this.relationТоварТоварыПоставки2 = new global::System.Data.DataRelation("ТоварТоварыПоставки2", new global::System.Data.DataColumn[] {
+                        this.tableТовар.ННColumn}, new global::System.Data.DataColumn[] {
+                        this.tableЗакупленныеТовары.ТоварColumn}, false);
+            this.Relations.Add(this.relationТоварТоварыПоставки2);
+            this.relationТоварТоварыПоставки3 = new global::System.Data.DataRelation("ТоварТоварыПоставки3", new global::System.Data.DataColumn[] {
+                        this.tableСкладТоварНнИНазвание.ННColumn}, new global::System.Data.DataColumn[] {
+                        this.tableЗакупленныеТовары.ТоварColumn}, false);
+            this.Relations.Add(this.relationТоварТоварыПоставки3);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -544,6 +624,18 @@ namespace SchemaStore {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private bool ShouldSerializeСкладТоварНнИНазвание() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializeПроданныеТовары() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializeЗакупленныеТовары() {
             return false;
         }
         
@@ -628,6 +720,12 @@ namespace SchemaStore {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void СкладТоварНнИНазваниеRowChangeEventHandler(object sender, СкладТоварНнИНазваниеRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void ПроданныеТоварыRowChangeEventHandler(object sender, ПроданныеТоварыRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void ЗакупленныеТоварыRowChangeEventHandler(object sender, ЗакупленныеТоварыRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -3728,6 +3826,562 @@ namespace SchemaStore {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ПроданныеТоварыDataTable : global::System.Data.TypedTableBase<ПроданныеТоварыRow> {
+            
+            private global::System.Data.DataColumn columnТовар;
+            
+            private global::System.Data.DataColumn columnКоличествоПроданного;
+            
+            private global::System.Data.DataColumn columnСуммаПроданного;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ПроданныеТоварыDataTable() {
+                this.TableName = "ПроданныеТовары";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal ПроданныеТоварыDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected ПроданныеТоварыDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ТоварColumn {
+                get {
+                    return this.columnТовар;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn КоличествоПроданногоColumn {
+                get {
+                    return this.columnКоличествоПроданного;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn СуммаПроданногоColumn {
+                get {
+                    return this.columnСуммаПроданного;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ПроданныеТоварыRow this[int index] {
+                get {
+                    return ((ПроданныеТоварыRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event ПроданныеТоварыRowChangeEventHandler ПроданныеТоварыRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event ПроданныеТоварыRowChangeEventHandler ПроданныеТоварыRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event ПроданныеТоварыRowChangeEventHandler ПроданныеТоварыRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event ПроданныеТоварыRowChangeEventHandler ПроданныеТоварыRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddПроданныеТоварыRow(ПроданныеТоварыRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ПроданныеТоварыRow AddПроданныеТоварыRow(ТоварRow parentТоварRowByТоварТоварыЗаказа2, double КоличествоПроданного, decimal СуммаПроданного) {
+                ПроданныеТоварыRow rowПроданныеТоварыRow = ((ПроданныеТоварыRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        КоличествоПроданного,
+                        СуммаПроданного};
+                if ((parentТоварRowByТоварТоварыЗаказа2 != null)) {
+                    columnValuesArray[0] = parentТоварRowByТоварТоварыЗаказа2[0];
+                }
+                rowПроданныеТоварыRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowПроданныеТоварыRow);
+                return rowПроданныеТоварыRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                ПроданныеТоварыDataTable cln = ((ПроданныеТоварыDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ПроданныеТоварыDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnТовар = base.Columns["Товар"];
+                this.columnКоличествоПроданного = base.Columns["КоличествоПроданного"];
+                this.columnСуммаПроданного = base.Columns["СуммаПроданного"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnТовар = new global::System.Data.DataColumn("Товар", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnТовар);
+                this.columnКоличествоПроданного = new global::System.Data.DataColumn("КоличествоПроданного", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnКоличествоПроданного);
+                this.columnСуммаПроданного = new global::System.Data.DataColumn("СуммаПроданного", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnСуммаПроданного);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ПроданныеТоварыRow NewПроданныеТоварыRow() {
+                return ((ПроданныеТоварыRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new ПроданныеТоварыRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(ПроданныеТоварыRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.ПроданныеТоварыRowChanged != null)) {
+                    this.ПроданныеТоварыRowChanged(this, new ПроданныеТоварыRowChangeEvent(((ПроданныеТоварыRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ПроданныеТоварыRowChanging != null)) {
+                    this.ПроданныеТоварыRowChanging(this, new ПроданныеТоварыRowChangeEvent(((ПроданныеТоварыRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ПроданныеТоварыRowDeleted != null)) {
+                    this.ПроданныеТоварыRowDeleted(this, new ПроданныеТоварыRowChangeEvent(((ПроданныеТоварыRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ПроданныеТоварыRowDeleting != null)) {
+                    this.ПроданныеТоварыRowDeleting(this, new ПроданныеТоварыRowChangeEvent(((ПроданныеТоварыRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemoveПроданныеТоварыRow(ПроданныеТоварыRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DatabaseDataSet ds = new DatabaseDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "ПроданныеТоварыDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ЗакупленныеТоварыDataTable : global::System.Data.TypedTableBase<ЗакупленныеТоварыRow> {
+            
+            private global::System.Data.DataColumn columnТовар;
+            
+            private global::System.Data.DataColumn columnКоличествоЗакупленного;
+            
+            private global::System.Data.DataColumn columnСуммаЗакупленного;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ЗакупленныеТоварыDataTable() {
+                this.TableName = "ЗакупленныеТовары";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal ЗакупленныеТоварыDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected ЗакупленныеТоварыDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ТоварColumn {
+                get {
+                    return this.columnТовар;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn КоличествоЗакупленногоColumn {
+                get {
+                    return this.columnКоличествоЗакупленного;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn СуммаЗакупленногоColumn {
+                get {
+                    return this.columnСуммаЗакупленного;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ЗакупленныеТоварыRow this[int index] {
+                get {
+                    return ((ЗакупленныеТоварыRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event ЗакупленныеТоварыRowChangeEventHandler ЗакупленныеТоварыRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event ЗакупленныеТоварыRowChangeEventHandler ЗакупленныеТоварыRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event ЗакупленныеТоварыRowChangeEventHandler ЗакупленныеТоварыRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event ЗакупленныеТоварыRowChangeEventHandler ЗакупленныеТоварыRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddЗакупленныеТоварыRow(ЗакупленныеТоварыRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ЗакупленныеТоварыRow AddЗакупленныеТоварыRow(ТоварRow parentТоварRowByТоварТоварыПоставки2, double КоличествоЗакупленного, decimal СуммаЗакупленного) {
+                ЗакупленныеТоварыRow rowЗакупленныеТоварыRow = ((ЗакупленныеТоварыRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        КоличествоЗакупленного,
+                        СуммаЗакупленного};
+                if ((parentТоварRowByТоварТоварыПоставки2 != null)) {
+                    columnValuesArray[0] = parentТоварRowByТоварТоварыПоставки2[0];
+                }
+                rowЗакупленныеТоварыRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowЗакупленныеТоварыRow);
+                return rowЗакупленныеТоварыRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                ЗакупленныеТоварыDataTable cln = ((ЗакупленныеТоварыDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ЗакупленныеТоварыDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnТовар = base.Columns["Товар"];
+                this.columnКоличествоЗакупленного = base.Columns["КоличествоЗакупленного"];
+                this.columnСуммаЗакупленного = base.Columns["СуммаЗакупленного"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnТовар = new global::System.Data.DataColumn("Товар", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnТовар);
+                this.columnКоличествоЗакупленного = new global::System.Data.DataColumn("КоличествоЗакупленного", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnКоличествоЗакупленного);
+                this.columnСуммаЗакупленного = new global::System.Data.DataColumn("СуммаЗакупленного", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnСуммаЗакупленного);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ЗакупленныеТоварыRow NewЗакупленныеТоварыRow() {
+                return ((ЗакупленныеТоварыRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new ЗакупленныеТоварыRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(ЗакупленныеТоварыRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.ЗакупленныеТоварыRowChanged != null)) {
+                    this.ЗакупленныеТоварыRowChanged(this, new ЗакупленныеТоварыRowChangeEvent(((ЗакупленныеТоварыRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ЗакупленныеТоварыRowChanging != null)) {
+                    this.ЗакупленныеТоварыRowChanging(this, new ЗакупленныеТоварыRowChangeEvent(((ЗакупленныеТоварыRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ЗакупленныеТоварыRowDeleted != null)) {
+                    this.ЗакупленныеТоварыRowDeleted(this, new ЗакупленныеТоварыRowChangeEvent(((ЗакупленныеТоварыRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ЗакупленныеТоварыRowDeleting != null)) {
+                    this.ЗакупленныеТоварыRowDeleting(this, new ЗакупленныеТоварыRowChangeEvent(((ЗакупленныеТоварыRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemoveЗакупленныеТоварыRow(ЗакупленныеТоварыRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DatabaseDataSet ds = new DatabaseDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "ЗакупленныеТоварыDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class ЗаказRow : global::System.Data.DataRow {
@@ -4723,6 +5377,28 @@ namespace SchemaStore {
                     return ((СкладRow[])(base.GetChildRows(this.Table.ChildRelations["ТоварСклад"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ПроданныеТоварыRow[] GetПроданныеТоварыRows() {
+                if ((this.Table.ChildRelations["ТоварТоварыЗаказа2"] == null)) {
+                    return new ПроданныеТоварыRow[0];
+                }
+                else {
+                    return ((ПроданныеТоварыRow[])(base.GetChildRows(this.Table.ChildRelations["ТоварТоварыЗаказа2"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ЗакупленныеТоварыRow[] GetЗакупленныеТоварыRows() {
+                if ((this.Table.ChildRelations["ТоварТоварыПоставки2"] == null)) {
+                    return new ЗакупленныеТоварыRow[0];
+                }
+                else {
+                    return ((ЗакупленныеТоварыRow[])(base.GetChildRows(this.Table.ChildRelations["ТоварТоварыПоставки2"])));
+                }
+            }
         }
         
         /// <summary>
@@ -5601,6 +6277,272 @@ namespace SchemaStore {
                     return ((СкладRow[])(base.GetChildRows(this.Table.ChildRelations["ТоварСклад1"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ПроданныеТоварыRow[] GetПроданныеТоварыRows() {
+                if ((this.Table.ChildRelations["ТоварТоварыЗаказа3"] == null)) {
+                    return new ПроданныеТоварыRow[0];
+                }
+                else {
+                    return ((ПроданныеТоварыRow[])(base.GetChildRows(this.Table.ChildRelations["ТоварТоварыЗаказа3"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ЗакупленныеТоварыRow[] GetЗакупленныеТоварыRows() {
+                if ((this.Table.ChildRelations["ТоварТоварыПоставки3"] == null)) {
+                    return new ЗакупленныеТоварыRow[0];
+                }
+                else {
+                    return ((ЗакупленныеТоварыRow[])(base.GetChildRows(this.Table.ChildRelations["ТоварТоварыПоставки3"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class ПроданныеТоварыRow : global::System.Data.DataRow {
+            
+            private ПроданныеТоварыDataTable tableПроданныеТовары;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal ПроданныеТоварыRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableПроданныеТовары = ((ПроданныеТоварыDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int Товар {
+                get {
+                    try {
+                        return ((int)(this[this.tableПроданныеТовары.ТоварColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Товар\' in table \'ПроданныеТовары\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableПроданныеТовары.ТоварColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public double КоличествоПроданного {
+                get {
+                    try {
+                        return ((double)(this[this.tableПроданныеТовары.КоличествоПроданногоColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'КоличествоПроданного\' in table \'ПроданныеТовары\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableПроданныеТовары.КоличествоПроданногоColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal СуммаПроданного {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableПроданныеТовары.СуммаПроданногоColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'СуммаПроданного\' in table \'ПроданныеТовары\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableПроданныеТовары.СуммаПроданногоColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ТоварRow ТоварRow {
+                get {
+                    return ((ТоварRow)(this.GetParentRow(this.Table.ParentRelations["ТоварТоварыЗаказа2"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["ТоварТоварыЗаказа2"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public СкладТоварНнИНазваниеRow СкладТоварНнИНазваниеRow {
+                get {
+                    return ((СкладТоварНнИНазваниеRow)(this.GetParentRow(this.Table.ParentRelations["ТоварТоварыЗаказа3"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["ТоварТоварыЗаказа3"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsТоварNull() {
+                return this.IsNull(this.tableПроданныеТовары.ТоварColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetТоварNull() {
+                this[this.tableПроданныеТовары.ТоварColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsКоличествоПроданногоNull() {
+                return this.IsNull(this.tableПроданныеТовары.КоличествоПроданногоColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetКоличествоПроданногоNull() {
+                this[this.tableПроданныеТовары.КоличествоПроданногоColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsСуммаПроданногоNull() {
+                return this.IsNull(this.tableПроданныеТовары.СуммаПроданногоColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetСуммаПроданногоNull() {
+                this[this.tableПроданныеТовары.СуммаПроданногоColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class ЗакупленныеТоварыRow : global::System.Data.DataRow {
+            
+            private ЗакупленныеТоварыDataTable tableЗакупленныеТовары;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal ЗакупленныеТоварыRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableЗакупленныеТовары = ((ЗакупленныеТоварыDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int Товар {
+                get {
+                    try {
+                        return ((int)(this[this.tableЗакупленныеТовары.ТоварColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Товар\' in table \'ЗакупленныеТовары\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableЗакупленныеТовары.ТоварColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public double КоличествоЗакупленного {
+                get {
+                    try {
+                        return ((double)(this[this.tableЗакупленныеТовары.КоличествоЗакупленногоColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'КоличествоЗакупленного\' in table \'ЗакупленныеТовары\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableЗакупленныеТовары.КоличествоЗакупленногоColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal СуммаЗакупленного {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableЗакупленныеТовары.СуммаЗакупленногоColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'СуммаЗакупленного\' in table \'ЗакупленныеТовары\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableЗакупленныеТовары.СуммаЗакупленногоColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ТоварRow ТоварRow {
+                get {
+                    return ((ТоварRow)(this.GetParentRow(this.Table.ParentRelations["ТоварТоварыПоставки2"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["ТоварТоварыПоставки2"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public СкладТоварНнИНазваниеRow СкладТоварНнИНазваниеRow {
+                get {
+                    return ((СкладТоварНнИНазваниеRow)(this.GetParentRow(this.Table.ParentRelations["ТоварТоварыПоставки3"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["ТоварТоварыПоставки3"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsТоварNull() {
+                return this.IsNull(this.tableЗакупленныеТовары.ТоварColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetТоварNull() {
+                this[this.tableЗакупленныеТовары.ТоварColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsКоличествоЗакупленногоNull() {
+                return this.IsNull(this.tableЗакупленныеТовары.КоличествоЗакупленногоColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetКоличествоЗакупленногоNull() {
+                this[this.tableЗакупленныеТовары.КоличествоЗакупленногоColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsСуммаЗакупленногоNull() {
+                return this.IsNull(this.tableЗакупленныеТовары.СуммаЗакупленногоColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetСуммаЗакупленногоNull() {
+                this[this.tableЗакупленныеТовары.СуммаЗакупленногоColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -5895,6 +6837,74 @@ namespace SchemaStore {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public СкладТоварНнИНазваниеRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class ПроданныеТоварыRowChangeEvent : global::System.EventArgs {
+            
+            private ПроданныеТоварыRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ПроданныеТоварыRowChangeEvent(ПроданныеТоварыRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ПроданныеТоварыRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class ЗакупленныеТоварыRowChangeEvent : global::System.EventArgs {
+            
+            private ЗакупленныеТоварыRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ЗакупленныеТоварыRowChangeEvent(ЗакупленныеТоварыRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ЗакупленныеТоварыRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -10150,6 +11160,434 @@ namespace SchemaStore.DatabaseDataSetTableAdapters {
         public virtual DatabaseDataSet.СкладТоварНнИНазваниеDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             DatabaseDataSet.СкладТоварНнИНазваниеDataTable dataTable = new DatabaseDataSet.СкладТоварНнИНазваниеDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class ПроданныеТоварыTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
+        
+        private global::System.Data.OleDb.OleDbConnection _connection;
+        
+        private global::System.Data.OleDb.OleDbTransaction _transaction;
+        
+        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public ПроданныеТоварыTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.OleDb.OleDbConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.OleDb.OleDbTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "ПроданныеТовары";
+            tableMapping.ColumnMappings.Add("Товар", "Товар");
+            tableMapping.ColumnMappings.Add("КоличествоПроданного", "КоличествоПроданного");
+            tableMapping.ColumnMappings.Add("СуммаПроданного", "СуммаПроданного");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.OleDb.OleDbConnection();
+            this._connection.ConnectionString = global::SchemaStore.Properties.Settings.Default.DatabaseConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[2];
+            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT        ТоварыЗаказа.Товар, SUM(ТоварыЗаказа.Количество) AS КоличествоПроданного, SUM(ТоварыЗаказа.Сумма) AS СуммаПроданного
+FROM            ((Заказ INNER JOIN
+                         ТоварыЗаказа ON Заказ.ID = ТоварыЗаказа.Заказ) INNER JOIN
+                         Товар ON ТоварыЗаказа.Товар = Товар.НН)
+WHERE        (Заказ.ДатаЗаказа BETWEEN NOW() AND DateAdd('M', - 6, NOW()) AND (Заказ.Статус = ""Оформлен"" OR Заказ.Статус = ""Отгружен""))
+GROUP BY ТоварыЗаказа.Товар";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT        ТоварыЗаказа.Товар, SUM(ТоварыЗаказа.Количество) AS КоличествоПроданного, SUM(ТоварыЗаказа.Сумма) AS СуммаПроданного
+FROM            ((Заказ INNER JOIN
+                         ТоварыЗаказа ON Заказ.ID = ТоварыЗаказа.Заказ) INNER JOIN
+                         Товар ON ТоварыЗаказа.Товар = Товар.НН)
+WHERE        (Заказ.ДатаЗаказа BETWEEN NOW() AND DateAdd('M', - 6, NOW()) AND (Заказ.Статус = ""Оформлен"" OR Заказ.Статус = ""Отгружен"") AND Товар.НН=?)
+GROUP BY ТоварыЗаказа.Товар";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("НН", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "НН", global::System.Data.DataRowVersion.Current, false, null));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DatabaseDataSet.ПроданныеТоварыDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DatabaseDataSet.ПроданныеТоварыDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            DatabaseDataSet.ПроданныеТоварыDataTable dataTable = new DatabaseDataSet.ПроданныеТоварыDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByProductNN(DatabaseDataSet.ПроданныеТоварыDataTable dataTable, int НН) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(НН));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DatabaseDataSet.ПроданныеТоварыDataTable GetDataBy(int НН) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(НН));
+            DatabaseDataSet.ПроданныеТоварыDataTable dataTable = new DatabaseDataSet.ПроданныеТоварыDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class ЗакупленныеТоварыTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
+        
+        private global::System.Data.OleDb.OleDbConnection _connection;
+        
+        private global::System.Data.OleDb.OleDbTransaction _transaction;
+        
+        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public ЗакупленныеТоварыTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.OleDb.OleDbConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.OleDb.OleDbTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "ЗакупленныеТовары";
+            tableMapping.ColumnMappings.Add("Товар", "Товар");
+            tableMapping.ColumnMappings.Add("КоличествоЗакупленного", "КоличествоЗакупленного");
+            tableMapping.ColumnMappings.Add("СуммаЗакупленного", "СуммаЗакупленного");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.OleDb.OleDbConnection();
+            this._connection.ConnectionString = global::SchemaStore.Properties.Settings.Default.DatabaseConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[2];
+            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT        ТоварыПоставки.Товар, SUM(ТоварыПоставки.Количество) AS КоличествоЗакупленного, SUM(ТоварыПоставки.Сумма) AS СуммаЗакупленного
+FROM            (Поставка INNER JOIN
+                         ТоварыПоставки ON Поставка.ID = ТоварыПоставки.Поставка)
+WHERE        (Поставка.ДатаВыполнения BETWEEN NOW() AND DateAdd('M', - 6, NOW())) AND (Поставка.Статус = 'Выполнено')
+GROUP BY ТоварыПоставки.Товар";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT        ТоварыПоставки.Товар, SUM(ТоварыПоставки.Количество) AS КоличествоЗакупленного, SUM(ТоварыПоставки.Сумма) AS СуммаЗакупленного
+FROM            (Поставка INNER JOIN
+                         ТоварыПоставки ON Поставка.ID = ТоварыПоставки.Поставка)
+WHERE        (Поставка.ДатаВыполнения BETWEEN NOW() AND DateAdd('M', - 6, NOW())) AND (Поставка.Статус = 'Выполнено') AND ТоварыПоставки.Товар = ?
+GROUP BY ТоварыПоставки.Товар";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Товар", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Товар", global::System.Data.DataRowVersion.Current, false, null));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DatabaseDataSet.ЗакупленныеТоварыDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DatabaseDataSet.ЗакупленныеТоварыDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            DatabaseDataSet.ЗакупленныеТоварыDataTable dataTable = new DatabaseDataSet.ЗакупленныеТоварыDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByProductNN(DatabaseDataSet.ЗакупленныеТоварыDataTable dataTable, global::System.Nullable<int> Товар) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Товар.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Товар.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DatabaseDataSet.ЗакупленныеТоварыDataTable GetDataBy(global::System.Nullable<int> Товар) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Товар.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Товар.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            DatabaseDataSet.ЗакупленныеТоварыDataTable dataTable = new DatabaseDataSet.ЗакупленныеТоварыDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

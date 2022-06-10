@@ -19,6 +19,10 @@ namespace SchemaStore
 
         private void AboutProduct_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.ЗакупленныеТовары' table. You can move, or remove it, as needed.
+            this.закупленныеТоварыTableAdapter.Fill(this.databaseDataSet.ЗакупленныеТовары);
+            // TODO: This line of code loads data into the 'databaseDataSet.ПроданныеТовары' table. You can move, or remove it, as needed.
+            this.проданныеТоварыTableAdapter.Fill(this.databaseDataSet.ПроданныеТовары);
             // TODO: This line of code loads data into the 'databaseDataSet.Склад' table. You can move, or remove it, as needed.
             this.складTableAdapter.Fill(this.databaseDataSet.Склад);
             // TODO: This line of code loads data into the 'databaseDataSet.Товар' table. You can move, or remove it, as needed.
