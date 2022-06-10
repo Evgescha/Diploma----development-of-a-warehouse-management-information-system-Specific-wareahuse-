@@ -67,5 +67,14 @@ namespace SchemaStore
             delivery.Show();
             HideForm();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            LoadingWindow loadingWindow = new LoadingWindow();
+            loadingWindow.Show();
+            new AboutProduct().Show();
+
+            loadingWindow.Close();
+        }
     }
 }

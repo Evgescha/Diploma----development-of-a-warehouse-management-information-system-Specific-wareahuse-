@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SchemaStore
@@ -19,15 +13,92 @@ namespace SchemaStore
 
         private void AboutProduct_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'databaseDataSet.ЗакупленныеТовары' table. You can move, or remove it, as needed.
-            this.закупленныеТоварыTableAdapter.Fill(this.databaseDataSet.ЗакупленныеТовары);
-            // TODO: This line of code loads data into the 'databaseDataSet.ПроданныеТовары' table. You can move, or remove it, as needed.
-            this.проданныеТоварыTableAdapter.Fill(this.databaseDataSet.ПроданныеТовары);
-            // TODO: This line of code loads data into the 'databaseDataSet.Склад' table. You can move, or remove it, as needed.
-            this.складTableAdapter.Fill(this.databaseDataSet.Склад);
-            // TODO: This line of code loads data into the 'databaseDataSet.Товар' table. You can move, or remove it, as needed.
-            this.товарTableAdapter.Fill(this.databaseDataSet.Товар);
+            закупленныеТоварыTableAdapter.Fill(databaseDataSet.ЗакупленныеТовары);
+            проданныеТоварыTableAdapter.Fill(databaseDataSet.ПроданныеТовары);
+            складTableAdapter.Fill(databaseDataSet.Склад);
+            товарTableAdapter.Fill(databaseDataSet.Товар);
 
+
+
+            initialData();
+        }
+
+        private void initialData()
+        {
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                loadGridAboutProduct(i);
+                updateCurrentProductInfo(i);
+            }
+
+            dataGridView3.Sort(dataGridView3.Columns[1], ListSortDirection.Ascending);
+            dataGridView3.Sort(dataGridView3.Columns[2], ListSortDirection.Ascending);
+            dataGridView3.Sort(dataGridView3.Columns[3], ListSortDirection.Ascending);
+            dataGridView3.Sort(dataGridView3.Columns[4], ListSortDirection.Ascending);
+        }
+
+        private void updateCurrentProductInfo(int i)
+        {
+            int ostatok = 0;
+            int order = 0;
+            int preorder = 0;
+            int virtualOstatok = 0;
+            if (dataGridView2.Rows.Count != 0)
+            {
+                ostatok = parseInt(dataGridView2[1, 0].Value);
+                order = parseInt(dataGridView2[3, 0].Value);
+                preorder = parseInt(dataGridView2[4, 0].Value);
+                virtualOstatok = parseInt(dataGridView2[5, 0].Value);
+            }
+
+            int orderedCount = 0;
+            double orderedSum = 0;
+            if (dataGridView4.Rows.Count != 0)
+            {
+                orderedCount = parseInt(dataGridView4[1, 0].Value);
+                orderedSum = parseDouble(dataGridView4[2, 0].Value);
+            }
+
+
+            int deliveredCount = 0;
+            double deliveredSum = 0;
+            if (dataGridView5.Rows.Count != 0)
+            {
+                deliveredCount = parseInt(dataGridView5[1, 0].Value);
+                deliveredSum = parseDouble(dataGridView5[2, 0].Value);
+            }
+
+
+            dataGridView3[1, i].Value = ostatok;
+            dataGridView3[2, i].Value = order;
+            dataGridView3[3, i].Value = preorder;
+            dataGridView3[4, i].Value = virtualOstatok;
+            dataGridView3[5, i].Value = orderedCount;
+            dataGridView3[6, i].Value = orderedSum;
+            dataGridView3[7, i].Value = deliveredCount;
+            dataGridView3[8, i].Value = deliveredSum;
+        }
+
+        private void loadGridAboutProduct(int i)
+        {
+            // load all datagrid
+            int productNN = int.Parse(dataGridView1[0, i].Value.ToString());
+            // 5 grid
+            закупленныеТоварыTableAdapter.FillByProductNN(databaseDataSet.ЗакупленныеТовары, productNN);
+            // 4 grid
+            проданныеТоварыTableAdapter.FillByProductNN(databaseDataSet.ПроданныеТовары, productNN);
+            // 2 grid
+            складTableAdapter.FillByProductId(databaseDataSet.Склад, productNN);
+        }
+
+        private int parseInt(object cellValue)
+        {
+            try { return int.Parse(cellValue.ToString()); } catch (Exception ex) { return 0; }
+        }
+
+        private double parseDouble(object cellValue)
+        {
+            try { return double.Parse(cellValue.ToString()); } catch (Exception ex) { return 0; }
         }
     }
 }

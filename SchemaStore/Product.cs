@@ -191,5 +191,10 @@ namespace SchemaStore
             textBox1.Text = "";
             товарBindingSource.RemoveFilter();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new AboutProduct().Show();
+        }
     }
 }
