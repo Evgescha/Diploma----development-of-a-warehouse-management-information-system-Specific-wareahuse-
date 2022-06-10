@@ -14,7 +14,7 @@ namespace SchemaStore
 
         private void Order_Load(object sender, EventArgs e)
         {
-            this.товарTableAdapter.Fill(this.databaseDataSet1.Товар);
+            this.товарTableAdapter2.Fill(this.databaseDataSet2.Товар);
             this.складТоварНнИНазваниеTableAdapter.Fill(this.databaseDataSet.СкладТоварНнИНазвание);
             loadData();
             comboBox1_SelectedIndexChanged(null, null);

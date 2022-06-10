@@ -24,6 +24,7 @@ namespace SchemaStore
 
         private void Delivery_Load(object sender, EventArgs e)
         {
+            this.товарTableAdapter2.Fill(this.databaseDataSet2.Товар);
             loadData();
         }
         private void loadData()
