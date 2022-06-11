@@ -30,25 +30,34 @@
         {
             this.components = new System.ComponentModel.Container();
             this.productGrid = new System.Windows.Forms.DataGridView();
-            this.grusoGrid = new System.Windows.Forms.DataGridView();
-            this.customerGrid = new System.Windows.Forms.DataGridView();
-            this.кППDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.иННDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.индексDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.адресDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.названиеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.заказчикDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.кППDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.иННDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.индексDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.адресDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.названиеDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderGrid = new System.Windows.Forms.DataGridView();
-            this.databaseDataSet = new SchemaStore.DatabaseDataSet();
+            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.заказDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.товарDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.количествоDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ценаНаМоментПродажиDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.фактЦенаПродажиЗаШтDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.суммаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.заказТоварыЗаказаBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.заказBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.заказTableAdapter = new SchemaStore.DatabaseDataSetTableAdapters.ЗаказTableAdapter();
+            this.databaseDataSet = new SchemaStore.DatabaseDataSet();
+            this.grusoGrid = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.заказчикDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.названиеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.адресDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.индексDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.иННDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.кППDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.заказчикГрузополучательBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.customerGrid = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.названиеDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.адресDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.индексDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.иННDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.кППDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.заказчикBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.orderGrid = new System.Windows.Forms.DataGridView();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.заказчикDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.статусDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,28 +68,33 @@
             this.стоимостьСДоставкойDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.грузополучательDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.датаЗаказаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.заказТоварыЗаказаBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.заказTableAdapter = new SchemaStore.DatabaseDataSetTableAdapters.ЗаказTableAdapter();
             this.товарыЗаказаTableAdapter = new SchemaStore.DatabaseDataSetTableAdapters.ТоварыЗаказаTableAdapter();
-            this.заказчикBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.заказчикTableAdapter = new SchemaStore.DatabaseDataSetTableAdapters.ЗаказчикTableAdapter();
-            this.заказчикГрузополучательBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.заказчикГрузополучательTableAdapter = new SchemaStore.DatabaseDataSetTableAdapters.ЗаказчикГрузополучательTableAdapter();
-            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.заказDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.товарDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.количествоDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ценаНаМоментПродажиDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.фактЦенаПродажиЗаШтDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.суммаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.товарBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.товарTableAdapter = new SchemaStore.DatabaseDataSetTableAdapters.ТоварTableAdapter();
+            this.нНDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.наименованиеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.сокращенноDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ценаBYNБезНдсDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ценаRUBБезНдсDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.приЗаказе19DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.приЗаказе1049DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.приЗаказе5099DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.приЗаказеОт100DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.productGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grusoGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.заказBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.заказТоварыЗаказаBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.заказчикBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.заказBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grusoGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.заказчикГрузополучательBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.заказчикBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.товарBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // productGrid
@@ -101,8 +115,73 @@
             this.productGrid.Location = new System.Drawing.Point(13, 174);
             this.productGrid.Name = "productGrid";
             this.productGrid.ReadOnly = true;
-            this.productGrid.Size = new System.Drawing.Size(1310, 96);
+            this.productGrid.Size = new System.Drawing.Size(759, 96);
             this.productGrid.TabIndex = 3;
+            // 
+            // iDDataGridViewTextBoxColumn1
+            // 
+            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
+            this.iDDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // заказDataGridViewTextBoxColumn
+            // 
+            this.заказDataGridViewTextBoxColumn.DataPropertyName = "Заказ";
+            this.заказDataGridViewTextBoxColumn.HeaderText = "Заказ";
+            this.заказDataGridViewTextBoxColumn.Name = "заказDataGridViewTextBoxColumn";
+            this.заказDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // товарDataGridViewTextBoxColumn
+            // 
+            this.товарDataGridViewTextBoxColumn.DataPropertyName = "Товар";
+            this.товарDataGridViewTextBoxColumn.HeaderText = "Товар";
+            this.товарDataGridViewTextBoxColumn.Name = "товарDataGridViewTextBoxColumn";
+            this.товарDataGridViewTextBoxColumn.ReadOnly = true;
+            this.товарDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // количествоDataGridViewTextBoxColumn
+            // 
+            this.количествоDataGridViewTextBoxColumn.DataPropertyName = "Количество";
+            this.количествоDataGridViewTextBoxColumn.HeaderText = "Количество";
+            this.количествоDataGridViewTextBoxColumn.Name = "количествоDataGridViewTextBoxColumn";
+            this.количествоDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ценаНаМоментПродажиDataGridViewTextBoxColumn
+            // 
+            this.ценаНаМоментПродажиDataGridViewTextBoxColumn.DataPropertyName = "ЦенаНаМоментПродажи";
+            this.ценаНаМоментПродажиDataGridViewTextBoxColumn.HeaderText = "ЦенаНаМоментПродажи";
+            this.ценаНаМоментПродажиDataGridViewTextBoxColumn.Name = "ценаНаМоментПродажиDataGridViewTextBoxColumn";
+            this.ценаНаМоментПродажиDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // фактЦенаПродажиЗаШтDataGridViewTextBoxColumn
+            // 
+            this.фактЦенаПродажиЗаШтDataGridViewTextBoxColumn.DataPropertyName = "ФактЦенаПродажиЗаШт";
+            this.фактЦенаПродажиЗаШтDataGridViewTextBoxColumn.HeaderText = "ФактЦенаПродажиЗаШт";
+            this.фактЦенаПродажиЗаШтDataGridViewTextBoxColumn.Name = "фактЦенаПродажиЗаШтDataGridViewTextBoxColumn";
+            this.фактЦенаПродажиЗаШтDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // суммаDataGridViewTextBoxColumn
+            // 
+            this.суммаDataGridViewTextBoxColumn.DataPropertyName = "Сумма";
+            this.суммаDataGridViewTextBoxColumn.HeaderText = "Сумма";
+            this.суммаDataGridViewTextBoxColumn.Name = "суммаDataGridViewTextBoxColumn";
+            this.суммаDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // заказТоварыЗаказаBindingSource
+            // 
+            this.заказТоварыЗаказаBindingSource.DataMember = "ЗаказТоварыЗаказа";
+            this.заказТоварыЗаказаBindingSource.DataSource = this.заказBindingSource;
+            // 
+            // заказBindingSource
+            // 
+            this.заказBindingSource.DataMember = "Заказ";
+            this.заказBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // databaseDataSet
+            // 
+            this.databaseDataSet.DataSetName = "DatabaseDataSet";
+            this.databaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // grusoGrid
             // 
@@ -125,6 +204,60 @@
             this.grusoGrid.Size = new System.Drawing.Size(634, 145);
             this.grusoGrid.TabIndex = 4;
             // 
+            // iDDataGridViewTextBoxColumn2
+            // 
+            this.iDDataGridViewTextBoxColumn2.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn2.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn2.Name = "iDDataGridViewTextBoxColumn2";
+            this.iDDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // заказчикDataGridViewTextBoxColumn1
+            // 
+            this.заказчикDataGridViewTextBoxColumn1.DataPropertyName = "Заказчик";
+            this.заказчикDataGridViewTextBoxColumn1.HeaderText = "Заказчик";
+            this.заказчикDataGridViewTextBoxColumn1.Name = "заказчикDataGridViewTextBoxColumn1";
+            this.заказчикDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // названиеDataGridViewTextBoxColumn
+            // 
+            this.названиеDataGridViewTextBoxColumn.DataPropertyName = "Название";
+            this.названиеDataGridViewTextBoxColumn.HeaderText = "Название";
+            this.названиеDataGridViewTextBoxColumn.Name = "названиеDataGridViewTextBoxColumn";
+            this.названиеDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // адресDataGridViewTextBoxColumn
+            // 
+            this.адресDataGridViewTextBoxColumn.DataPropertyName = "Адрес";
+            this.адресDataGridViewTextBoxColumn.HeaderText = "Адрес";
+            this.адресDataGridViewTextBoxColumn.Name = "адресDataGridViewTextBoxColumn";
+            this.адресDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // индексDataGridViewTextBoxColumn
+            // 
+            this.индексDataGridViewTextBoxColumn.DataPropertyName = "Индекс";
+            this.индексDataGridViewTextBoxColumn.HeaderText = "Индекс";
+            this.индексDataGridViewTextBoxColumn.Name = "индексDataGridViewTextBoxColumn";
+            this.индексDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // иННDataGridViewTextBoxColumn
+            // 
+            this.иННDataGridViewTextBoxColumn.DataPropertyName = "ИНН";
+            this.иННDataGridViewTextBoxColumn.HeaderText = "ИНН";
+            this.иННDataGridViewTextBoxColumn.Name = "иННDataGridViewTextBoxColumn";
+            this.иННDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // кППDataGridViewTextBoxColumn
+            // 
+            this.кППDataGridViewTextBoxColumn.DataPropertyName = "КПП";
+            this.кППDataGridViewTextBoxColumn.HeaderText = "КПП";
+            this.кППDataGridViewTextBoxColumn.Name = "кППDataGridViewTextBoxColumn";
+            this.кППDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // заказчикГрузополучательBindingSource
+            // 
+            this.заказчикГрузополучательBindingSource.DataMember = "ЗаказчикГрузополучатель";
+            this.заказчикГрузополучательBindingSource.DataSource = this.databaseDataSet;
+            // 
             // customerGrid
             // 
             this.customerGrid.AutoGenerateColumns = false;
@@ -142,78 +275,11 @@
             this.customerGrid.Size = new System.Drawing.Size(670, 145);
             this.customerGrid.TabIndex = 5;
             // 
-            // кППDataGridViewTextBoxColumn
+            // iDDataGridViewTextBoxColumn3
             // 
-            this.кППDataGridViewTextBoxColumn.DataPropertyName = "КПП";
-            this.кППDataGridViewTextBoxColumn.HeaderText = "КПП";
-            this.кППDataGridViewTextBoxColumn.Name = "кППDataGridViewTextBoxColumn";
-            this.кППDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // иННDataGridViewTextBoxColumn
-            // 
-            this.иННDataGridViewTextBoxColumn.DataPropertyName = "ИНН";
-            this.иННDataGridViewTextBoxColumn.HeaderText = "ИНН";
-            this.иННDataGridViewTextBoxColumn.Name = "иННDataGridViewTextBoxColumn";
-            this.иННDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // индексDataGridViewTextBoxColumn
-            // 
-            this.индексDataGridViewTextBoxColumn.DataPropertyName = "Индекс";
-            this.индексDataGridViewTextBoxColumn.HeaderText = "Индекс";
-            this.индексDataGridViewTextBoxColumn.Name = "индексDataGridViewTextBoxColumn";
-            this.индексDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // адресDataGridViewTextBoxColumn
-            // 
-            this.адресDataGridViewTextBoxColumn.DataPropertyName = "Адрес";
-            this.адресDataGridViewTextBoxColumn.HeaderText = "Адрес";
-            this.адресDataGridViewTextBoxColumn.Name = "адресDataGridViewTextBoxColumn";
-            this.адресDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // названиеDataGridViewTextBoxColumn
-            // 
-            this.названиеDataGridViewTextBoxColumn.DataPropertyName = "Название";
-            this.названиеDataGridViewTextBoxColumn.HeaderText = "Название";
-            this.названиеDataGridViewTextBoxColumn.Name = "названиеDataGridViewTextBoxColumn";
-            this.названиеDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // заказчикDataGridViewTextBoxColumn1
-            // 
-            this.заказчикDataGridViewTextBoxColumn1.DataPropertyName = "Заказчик";
-            this.заказчикDataGridViewTextBoxColumn1.HeaderText = "Заказчик";
-            this.заказчикDataGridViewTextBoxColumn1.Name = "заказчикDataGridViewTextBoxColumn1";
-            this.заказчикDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // iDDataGridViewTextBoxColumn2
-            // 
-            this.iDDataGridViewTextBoxColumn2.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn2.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn2.Name = "iDDataGridViewTextBoxColumn2";
-            this.iDDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // кППDataGridViewTextBoxColumn1
-            // 
-            this.кППDataGridViewTextBoxColumn1.DataPropertyName = "КПП";
-            this.кППDataGridViewTextBoxColumn1.HeaderText = "КПП";
-            this.кППDataGridViewTextBoxColumn1.Name = "кППDataGridViewTextBoxColumn1";
-            // 
-            // иННDataGridViewTextBoxColumn1
-            // 
-            this.иННDataGridViewTextBoxColumn1.DataPropertyName = "ИНН";
-            this.иННDataGridViewTextBoxColumn1.HeaderText = "ИНН";
-            this.иННDataGridViewTextBoxColumn1.Name = "иННDataGridViewTextBoxColumn1";
-            // 
-            // индексDataGridViewTextBoxColumn1
-            // 
-            this.индексDataGridViewTextBoxColumn1.DataPropertyName = "Индекс";
-            this.индексDataGridViewTextBoxColumn1.HeaderText = "Индекс";
-            this.индексDataGridViewTextBoxColumn1.Name = "индексDataGridViewTextBoxColumn1";
-            // 
-            // адресDataGridViewTextBoxColumn1
-            // 
-            this.адресDataGridViewTextBoxColumn1.DataPropertyName = "Адрес";
-            this.адресDataGridViewTextBoxColumn1.HeaderText = "Адрес";
-            this.адресDataGridViewTextBoxColumn1.Name = "адресDataGridViewTextBoxColumn1";
+            this.iDDataGridViewTextBoxColumn3.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn3.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn3.Name = "iDDataGridViewTextBoxColumn3";
             // 
             // названиеDataGridViewTextBoxColumn1
             // 
@@ -221,11 +287,34 @@
             this.названиеDataGridViewTextBoxColumn1.HeaderText = "Название";
             this.названиеDataGridViewTextBoxColumn1.Name = "названиеDataGridViewTextBoxColumn1";
             // 
-            // iDDataGridViewTextBoxColumn3
+            // адресDataGridViewTextBoxColumn1
             // 
-            this.iDDataGridViewTextBoxColumn3.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn3.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn3.Name = "iDDataGridViewTextBoxColumn3";
+            this.адресDataGridViewTextBoxColumn1.DataPropertyName = "Адрес";
+            this.адресDataGridViewTextBoxColumn1.HeaderText = "Адрес";
+            this.адресDataGridViewTextBoxColumn1.Name = "адресDataGridViewTextBoxColumn1";
+            // 
+            // индексDataGridViewTextBoxColumn1
+            // 
+            this.индексDataGridViewTextBoxColumn1.DataPropertyName = "Индекс";
+            this.индексDataGridViewTextBoxColumn1.HeaderText = "Индекс";
+            this.индексDataGridViewTextBoxColumn1.Name = "индексDataGridViewTextBoxColumn1";
+            // 
+            // иННDataGridViewTextBoxColumn1
+            // 
+            this.иННDataGridViewTextBoxColumn1.DataPropertyName = "ИНН";
+            this.иННDataGridViewTextBoxColumn1.HeaderText = "ИНН";
+            this.иННDataGridViewTextBoxColumn1.Name = "иННDataGridViewTextBoxColumn1";
+            // 
+            // кППDataGridViewTextBoxColumn1
+            // 
+            this.кППDataGridViewTextBoxColumn1.DataPropertyName = "КПП";
+            this.кППDataGridViewTextBoxColumn1.HeaderText = "КПП";
+            this.кППDataGridViewTextBoxColumn1.Name = "кППDataGridViewTextBoxColumn1";
+            // 
+            // заказчикBindingSource
+            // 
+            this.заказчикBindingSource.DataMember = "Заказчик";
+            this.заказчикBindingSource.DataSource = this.databaseDataSet;
             // 
             // orderGrid
             // 
@@ -247,20 +336,6 @@
             this.orderGrid.Name = "orderGrid";
             this.orderGrid.Size = new System.Drawing.Size(1309, 126);
             this.orderGrid.TabIndex = 6;
-            // 
-            // databaseDataSet
-            // 
-            this.databaseDataSet.DataSetName = "DatabaseDataSet";
-            this.databaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // заказBindingSource
-            // 
-            this.заказBindingSource.DataMember = "Заказ";
-            this.заказBindingSource.DataSource = this.databaseDataSet;
-            // 
-            // заказTableAdapter
-            // 
-            this.заказTableAdapter.ClearBeforeFill = true;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -322,88 +397,111 @@
             this.датаЗаказаDataGridViewTextBoxColumn.HeaderText = "ДатаЗаказа";
             this.датаЗаказаDataGridViewTextBoxColumn.Name = "датаЗаказаDataGridViewTextBoxColumn";
             // 
-            // заказТоварыЗаказаBindingSource
+            // заказTableAdapter
             // 
-            this.заказТоварыЗаказаBindingSource.DataMember = "ЗаказТоварыЗаказа";
-            this.заказТоварыЗаказаBindingSource.DataSource = this.заказBindingSource;
+            this.заказTableAdapter.ClearBeforeFill = true;
             // 
             // товарыЗаказаTableAdapter
             // 
             this.товарыЗаказаTableAdapter.ClearBeforeFill = true;
             // 
-            // заказчикBindingSource
-            // 
-            this.заказчикBindingSource.DataMember = "Заказчик";
-            this.заказчикBindingSource.DataSource = this.databaseDataSet;
-            // 
             // заказчикTableAdapter
             // 
             this.заказчикTableAdapter.ClearBeforeFill = true;
-            // 
-            // заказчикГрузополучательBindingSource
-            // 
-            this.заказчикГрузополучательBindingSource.DataMember = "ЗаказчикГрузополучатель";
-            this.заказчикГрузополучательBindingSource.DataSource = this.databaseDataSet;
             // 
             // заказчикГрузополучательTableAdapter
             // 
             this.заказчикГрузополучательTableAdapter.ClearBeforeFill = true;
             // 
-            // iDDataGridViewTextBoxColumn1
+            // dataGridView1
             // 
-            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
-            this.iDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.нНDataGridViewTextBoxColumn,
+            this.наименованиеDataGridViewTextBoxColumn,
+            this.сокращенноDataGridViewTextBoxColumn,
+            this.ценаBYNБезНдсDataGridViewTextBoxColumn,
+            this.ценаRUBБезНдсDataGridViewTextBoxColumn,
+            this.приЗаказе19DataGridViewTextBoxColumn,
+            this.приЗаказе1049DataGridViewTextBoxColumn,
+            this.приЗаказе5099DataGridViewTextBoxColumn,
+            this.приЗаказеОт100DataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.товарBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(779, 174);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(543, 87);
+            this.dataGridView1.TabIndex = 7;
             // 
-            // заказDataGridViewTextBoxColumn
+            // товарBindingSource
             // 
-            this.заказDataGridViewTextBoxColumn.DataPropertyName = "Заказ";
-            this.заказDataGridViewTextBoxColumn.HeaderText = "Заказ";
-            this.заказDataGridViewTextBoxColumn.Name = "заказDataGridViewTextBoxColumn";
-            this.заказDataGridViewTextBoxColumn.ReadOnly = true;
+            this.товарBindingSource.DataMember = "Товар";
+            this.товарBindingSource.DataSource = this.databaseDataSet;
             // 
-            // товарDataGridViewTextBoxColumn
+            // товарTableAdapter
             // 
-            this.товарDataGridViewTextBoxColumn.DataPropertyName = "Товар";
-            this.товарDataGridViewTextBoxColumn.HeaderText = "Товар";
-            this.товарDataGridViewTextBoxColumn.Name = "товарDataGridViewTextBoxColumn";
-            this.товарDataGridViewTextBoxColumn.ReadOnly = true;
-            this.товарDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.товарTableAdapter.ClearBeforeFill = true;
             // 
-            // количествоDataGridViewTextBoxColumn
+            // нНDataGridViewTextBoxColumn
             // 
-            this.количествоDataGridViewTextBoxColumn.DataPropertyName = "Количество";
-            this.количествоDataGridViewTextBoxColumn.HeaderText = "Количество";
-            this.количествоDataGridViewTextBoxColumn.Name = "количествоDataGridViewTextBoxColumn";
-            this.количествоDataGridViewTextBoxColumn.ReadOnly = true;
+            this.нНDataGridViewTextBoxColumn.DataPropertyName = "НН";
+            this.нНDataGridViewTextBoxColumn.HeaderText = "НН";
+            this.нНDataGridViewTextBoxColumn.Name = "нНDataGridViewTextBoxColumn";
             // 
-            // ценаНаМоментПродажиDataGridViewTextBoxColumn
+            // наименованиеDataGridViewTextBoxColumn
             // 
-            this.ценаНаМоментПродажиDataGridViewTextBoxColumn.DataPropertyName = "ЦенаНаМоментПродажи";
-            this.ценаНаМоментПродажиDataGridViewTextBoxColumn.HeaderText = "ЦенаНаМоментПродажи";
-            this.ценаНаМоментПродажиDataGridViewTextBoxColumn.Name = "ценаНаМоментПродажиDataGridViewTextBoxColumn";
-            this.ценаНаМоментПродажиDataGridViewTextBoxColumn.ReadOnly = true;
+            this.наименованиеDataGridViewTextBoxColumn.DataPropertyName = "Наименование";
+            this.наименованиеDataGridViewTextBoxColumn.HeaderText = "Наименование";
+            this.наименованиеDataGridViewTextBoxColumn.Name = "наименованиеDataGridViewTextBoxColumn";
             // 
-            // фактЦенаПродажиЗаШтDataGridViewTextBoxColumn
+            // сокращенноDataGridViewTextBoxColumn
             // 
-            this.фактЦенаПродажиЗаШтDataGridViewTextBoxColumn.DataPropertyName = "ФактЦенаПродажиЗаШт";
-            this.фактЦенаПродажиЗаШтDataGridViewTextBoxColumn.HeaderText = "ФактЦенаПродажиЗаШт";
-            this.фактЦенаПродажиЗаШтDataGridViewTextBoxColumn.Name = "фактЦенаПродажиЗаШтDataGridViewTextBoxColumn";
-            this.фактЦенаПродажиЗаШтDataGridViewTextBoxColumn.ReadOnly = true;
+            this.сокращенноDataGridViewTextBoxColumn.DataPropertyName = "Сокращенно";
+            this.сокращенноDataGridViewTextBoxColumn.HeaderText = "Сокращенно";
+            this.сокращенноDataGridViewTextBoxColumn.Name = "сокращенноDataGridViewTextBoxColumn";
             // 
-            // суммаDataGridViewTextBoxColumn
+            // ценаBYNБезНдсDataGridViewTextBoxColumn
             // 
-            this.суммаDataGridViewTextBoxColumn.DataPropertyName = "Сумма";
-            this.суммаDataGridViewTextBoxColumn.HeaderText = "Сумма";
-            this.суммаDataGridViewTextBoxColumn.Name = "суммаDataGridViewTextBoxColumn";
-            this.суммаDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ценаBYNБезНдсDataGridViewTextBoxColumn.DataPropertyName = "ЦенаBYNБезНдс";
+            this.ценаBYNБезНдсDataGridViewTextBoxColumn.HeaderText = "ЦенаBYNБезНдс";
+            this.ценаBYNБезНдсDataGridViewTextBoxColumn.Name = "ценаBYNБезНдсDataGridViewTextBoxColumn";
+            // 
+            // ценаRUBБезНдсDataGridViewTextBoxColumn
+            // 
+            this.ценаRUBБезНдсDataGridViewTextBoxColumn.DataPropertyName = "ЦенаRUBБезНдс";
+            this.ценаRUBБезНдсDataGridViewTextBoxColumn.HeaderText = "ЦенаRUBБезНдс";
+            this.ценаRUBБезНдсDataGridViewTextBoxColumn.Name = "ценаRUBБезНдсDataGridViewTextBoxColumn";
+            // 
+            // приЗаказе19DataGridViewTextBoxColumn
+            // 
+            this.приЗаказе19DataGridViewTextBoxColumn.DataPropertyName = "ПриЗаказе1-9";
+            this.приЗаказе19DataGridViewTextBoxColumn.HeaderText = "ПриЗаказе1-9";
+            this.приЗаказе19DataGridViewTextBoxColumn.Name = "приЗаказе19DataGridViewTextBoxColumn";
+            // 
+            // приЗаказе1049DataGridViewTextBoxColumn
+            // 
+            this.приЗаказе1049DataGridViewTextBoxColumn.DataPropertyName = "ПриЗаказе10-49";
+            this.приЗаказе1049DataGridViewTextBoxColumn.HeaderText = "ПриЗаказе10-49";
+            this.приЗаказе1049DataGridViewTextBoxColumn.Name = "приЗаказе1049DataGridViewTextBoxColumn";
+            // 
+            // приЗаказе5099DataGridViewTextBoxColumn
+            // 
+            this.приЗаказе5099DataGridViewTextBoxColumn.DataPropertyName = "ПриЗаказе50-99";
+            this.приЗаказе5099DataGridViewTextBoxColumn.HeaderText = "ПриЗаказе50-99";
+            this.приЗаказе5099DataGridViewTextBoxColumn.Name = "приЗаказе5099DataGridViewTextBoxColumn";
+            // 
+            // приЗаказеОт100DataGridViewTextBoxColumn
+            // 
+            this.приЗаказеОт100DataGridViewTextBoxColumn.DataPropertyName = "ПриЗаказеОт100";
+            this.приЗаказеОт100DataGridViewTextBoxColumn.HeaderText = "ПриЗаказеОт100";
+            this.приЗаказеОт100DataGridViewTextBoxColumn.Name = "приЗаказеОт100DataGridViewTextBoxColumn";
             // 
             // ReportGenerator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1334, 433);
+            this.ClientSize = new System.Drawing.Size(120, 0);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.orderGrid);
             this.Controls.Add(this.customerGrid);
             this.Controls.Add(this.grusoGrid);
@@ -412,14 +510,16 @@
             this.Text = "TEST";
             this.Load += new System.EventHandler(this.TEST_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grusoGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.заказBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.заказТоварыЗаказаBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.заказчикBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.заказBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grusoGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.заказчикГрузополучательBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.заказчикBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.товарBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -468,5 +568,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ценаНаМоментПродажиDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn фактЦенаПродажиЗаШтDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn суммаDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource товарBindingSource;
+        private DatabaseDataSetTableAdapters.ТоварTableAdapter товарTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn нНDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn наименованиеDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn сокращенноDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ценаBYNБезНдсDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ценаRUBБезНдсDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn приЗаказе19DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn приЗаказе1049DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn приЗаказе5099DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn приЗаказеОт100DataGridViewTextBoxColumn;
     }
 }

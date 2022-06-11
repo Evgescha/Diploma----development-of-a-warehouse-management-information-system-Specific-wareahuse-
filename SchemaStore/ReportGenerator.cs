@@ -11,7 +11,6 @@ namespace SchemaStore
         {
             LoadingWindow loading = new LoadingWindow();
             loading.Show();
-
             InitializeComponent();
 
 
@@ -19,6 +18,8 @@ namespace SchemaStore
             товарыЗаказаTableAdapter.FillByOrderId(databaseDataSet.ТоварыЗаказа, orderID);
             заказчикГрузополучательTableAdapter.FillByID(databaseDataSet.ЗаказчикГрузополучатель, grusopolushID);
             заказчикTableAdapter.FillByID(databaseDataSet.Заказчик, customerID);
+
+            wait();
 
             string fileName = System.Windows.Forms.Application.StartupPath + "\\" + "card.xlsx";
 
@@ -46,7 +47,8 @@ namespace SchemaStore
                 // №
                 xlWorksheet.Cells[number, 1] = i + 1;
                 // name
-                xlWorksheet.Cells[number, 2] = productGrid.Rows[i].Cells[2].Value;
+                товарTableAdapter.FillByProductId(databaseDataSet.Товар, int.Parse(productGrid.Rows[i].Cells[2].Value.ToString()));
+                xlWorksheet.Cells[number, 2] = dataGridView1.Rows[0].Cells[1].Value;
                 // ed ism
                 xlWorksheet.Cells[number, 3] = "шт.";
                 // count
@@ -130,8 +132,15 @@ namespace SchemaStore
             this.Close();
         }
 
+        private void wait()
+        {
+            try { System.Threading.Thread.Sleep(1000); } catch (Exception e) { }
+        }
+
         private void TEST_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'databaseDataSet.Товар' table. You can move, or remove it, as needed.
+            this.товарTableAdapter.Fill(this.databaseDataSet.Товар);
             this.заказчикГрузополучательTableAdapter.Fill(this.databaseDataSet.ЗаказчикГрузополучатель);
             this.заказчикTableAdapter.Fill(this.databaseDataSet.Заказчик);
             this.товарыЗаказаTableAdapter.Fill(this.databaseDataSet.ТоварыЗаказа);
