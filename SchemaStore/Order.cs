@@ -369,9 +369,9 @@ namespace SchemaStore
                 }
                 if (dataGridView1.CurrentRow.Cells[3].Value.Equals("Предзаказ"))
                     for (int i = 0; i < dataGridView2.RowCount; i++)
-                {
-                    moveProductFromPreorderToOrderInWarehouse(int.Parse(dataGridView2.Rows[i].Cells[2].Value.ToString()), int.Parse(dataGridView2.Rows[i].Cells[3].Value.ToString()));
-                }
+                    {
+                        moveProductFromPreorderToOrderInWarehouse(int.Parse(dataGridView2.Rows[i].Cells[2].Value.ToString()), int.Parse(dataGridView2.Rows[i].Cells[3].Value.ToString()));
+                    }
                 //update count of product in labels
                 comboBox1_SelectedIndexChanged(null, null);
                 dataGridView1.CurrentRow.Cells[3].Value = "Оформлен";
@@ -424,6 +424,24 @@ namespace SchemaStore
             addCountPreorderProductInWarehouseOrAddNewLine(productNN, count);
             removeCountProductFromWarehouseOrAddNewLine(productNN, -count);
             updateVirtualRemainsInWarehouse();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count != 0 && dataGridView1.CurrentRow != null)
+            {
+                ReportGenerator generator = new ReportGenerator();
+                generator.Show();
+                generator.generateReport(
+                    int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString()),
+                    int.Parse(dataGridView1.CurrentRow.Cells[9].Value.ToString()),
+                    int.Parse(dataGridView1.CurrentRow.Cells[1].Value.ToString())
+                    );
+            }
+            else
+            {
+                MessageBox.Show("Не выбран заказ для отчета");
+            }
         }
     }
 }

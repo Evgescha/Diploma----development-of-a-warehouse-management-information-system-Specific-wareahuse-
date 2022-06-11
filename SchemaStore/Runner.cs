@@ -26,7 +26,6 @@ namespace SchemaStore
         {
             InitializeComponent();
             runner = this;
-            new TEST().Show();
         }
 
         private void Runner_Load(object sender, EventArgs e)
