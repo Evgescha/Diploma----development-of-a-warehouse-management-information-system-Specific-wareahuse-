@@ -20,7 +20,7 @@ namespace SchemaStore
             заказчикГрузополучательTableAdapter.FillByID(databaseDataSet.ЗаказчикГрузополучатель, grusopolushID);
             заказчикTableAdapter.FillByID(databaseDataSet.Заказчик, customerID);
 
-            string fileName = "card.xlsx";
+            string fileName = System.Windows.Forms.Application.StartupPath + "\\" + "card.xlsx";
 
 
             Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
@@ -38,35 +38,35 @@ namespace SchemaStore
             double priceWidhNds = 0;
 
 
-            //for (int i = 0; i < productGrid.Rows.Count; i++)
-            //{
-            //    Range cellRange = xlWorksheet.Cells[number, 1];
-            //    Range rowRange = cellRange.EntireRow;
-            //    rowRange.Insert(XlInsertShiftDirection.xlShiftDown, false);
-            //    // №
-            //    xlWorksheet.Cells[number, 1] = i + 1;
-            //    // name
-            //    xlWorksheet.Cells[number, 2] = productGrid.Rows[i].Cells[2].Value;
-            //    // ed ism
-            //    xlWorksheet.Cells[number, 3] = "шт.";
-            //    // count
-            //    xlWorksheet.Cells[number, 4] = productGrid.Rows[i].Cells[3].Value;
-            //    count = count + int.Parse(productGrid.Rows[i].Cells[3].Value.ToString());
-            //    // price
-            //    xlWorksheet.Cells[number, 5] = productGrid.Rows[i].Cells[5].Value;
-            //    // all price
-            //    xlWorksheet.Cells[number, 6] = productGrid.Rows[i].Cells[6].Value;
-            //    allPrice = allPrice + int.Parse(productGrid.Rows[i].Cells[6].Value.ToString());
-            //    // nds price
-            //    xlWorksheet.Cells[number, 7] = double.Parse(productGrid.Rows[i].Cells[6].Value.ToString()) * 0.2;
-            //    ndsPrice = ndsPrice + double.Parse(productGrid.Rows[i].Cells[6].Value.ToString()) * 0.2;
-            //    // price s nds
-            //    xlWorksheet.Cells[number, 8] = double.Parse(productGrid.Rows[i].Cells[6].Value.ToString()) * 1.2;
-            //    priceWidhNds = allPrice + double.Parse(productGrid.Rows[i].Cells[6].Value.ToString()) * 1.2;
-            //    // 
-            //    number++;
+            for (int i = 0; i < productGrid.Rows.Count; i++)
+            {
+                Range cellRange = xlWorksheet.Cells[number, 1];
+                Range rowRange = cellRange.EntireRow;
+                rowRange.Insert(XlInsertShiftDirection.xlShiftDown, false);
+                // №
+                xlWorksheet.Cells[number, 1] = i + 1;
+                // name
+                xlWorksheet.Cells[number, 2] = productGrid.Rows[i].Cells[2].Value;
+                // ed ism
+                xlWorksheet.Cells[number, 3] = "шт.";
+                // count
+                xlWorksheet.Cells[number, 4] = productGrid.Rows[i].Cells[3].Value;
+                count = count + int.Parse(productGrid.Rows[i].Cells[3].Value.ToString());
+                // price
+                xlWorksheet.Cells[number, 5] = productGrid.Rows[i].Cells[5].Value;
+                // all price
+                xlWorksheet.Cells[number, 6] = productGrid.Rows[i].Cells[6].Value;
+                allPrice = allPrice + double.Parse(productGrid.Rows[i].Cells[6].Value.ToString());
+                // nds price
+                xlWorksheet.Cells[number, 7] = double.Parse(productGrid.Rows[i].Cells[6].Value.ToString()) * 0.2;
+                ndsPrice = ndsPrice + double.Parse(productGrid.Rows[i].Cells[6].Value.ToString()) * 0.2;
+                // price s nds
+                xlWorksheet.Cells[number, 8] = double.Parse(productGrid.Rows[i].Cells[6].Value.ToString()) * 1.2;
+                priceWidhNds = allPrice + double.Parse(productGrid.Rows[i].Cells[6].Value.ToString()) * 1.2;
+                // 
+                number++;
 
-            //}
+            }
 
             xlWorksheet.Cells[number, 4] = count;
             xlWorksheet.Cells[number, 6] = allPrice;
