@@ -1,11 +1,13 @@
 ﻿using System;
-using System.ComponentModel;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace SchemaStore
 {
     public partial class AboutProduct : Form
     {
+        List<ProductDto> list = new List<ProductDto>();
+
         public AboutProduct()
         {
             InitializeComponent();
@@ -18,9 +20,17 @@ namespace SchemaStore
             складTableAdapter.Fill(databaseDataSet.Склад);
             товарTableAdapter.Fill(databaseDataSet.Товар);
 
-
+            dataGridView6.RowCount = dataGridView3.RowCount;
 
             initialData();
+
+            for (int i = 0; i < dataGridView3.Rows.Count-1; i++) {
+                dataGridView6[0, i].Value = dataGridView1[0, i].Value;
+                dataGridView6[1, i].Value = dataGridView1[1, i].Value;
+                for (int j = 1; j < 8; j++) {
+                    dataGridView6[j+1, i].Value = dataGridView3[j, i].Value;
+                }
+            }
         }
 
         private void initialData()
@@ -30,11 +40,6 @@ namespace SchemaStore
                 loadGridAboutProduct(i);
                 updateCurrentProductInfo(i);
             }
-
-            dataGridView3.Sort(dataGridView3.Columns[1], ListSortDirection.Ascending);
-            dataGridView3.Sort(dataGridView3.Columns[2], ListSortDirection.Ascending);
-            dataGridView3.Sort(dataGridView3.Columns[3], ListSortDirection.Ascending);
-            dataGridView3.Sort(dataGridView3.Columns[4], ListSortDirection.Ascending);
         }
 
         private void updateCurrentProductInfo(int i)
@@ -45,7 +50,7 @@ namespace SchemaStore
             int virtualOstatok = 0;
             if (dataGridView2.Rows.Count != 0)
             {
-                ostatok = parseInt(dataGridView2[1, 0].Value);
+                ostatok = parseInt(dataGridView2[1, 0].Value); 
                 order = parseInt(dataGridView2[3, 0].Value);
                 preorder = parseInt(dataGridView2[4, 0].Value);
                 virtualOstatok = parseInt(dataGridView2[5, 0].Value);
@@ -77,6 +82,7 @@ namespace SchemaStore
             dataGridView3[6, i].Value = orderedSum;
             dataGridView3[7, i].Value = deliveredCount;
             dataGridView3[8, i].Value = deliveredSum;
+
         }
 
         private void loadGridAboutProduct(int i)
@@ -99,6 +105,38 @@ namespace SchemaStore
         private double parseDouble(object cellValue)
         {
             try { return double.Parse(cellValue.ToString()); } catch (Exception ex) { return 0; }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int productNN = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            for (int i = 0; i < dataGridView6.Rows.Count; i++) {
+                try {
+                    int secondProductNN = int.Parse(dataGridView6.Rows[i].Cells[0].Value.ToString());
+                    if (productNN == secondProductNN) {
+                        dataGridView6.CurrentCell = dataGridView6.Rows[i].Cells[0];
+                    }
+                } catch (Exception ex) { }
+            }
+
+        }
+
+        private void dataGridView6_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            int productNN = int.Parse(dataGridView6.CurrentRow.Cells[0].Value.ToString());
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                try
+                {
+                    int secondProductNN = int.Parse(dataGridView1.Rows[i].Cells[0].Value.ToString());
+                    if (productNN == secondProductNN)
+                    {
+                        dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[0];
+                    }
+                }
+                catch (Exception ex) { }
+            }
         }
     }
 }
