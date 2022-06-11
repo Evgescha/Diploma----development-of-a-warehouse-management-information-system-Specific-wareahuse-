@@ -6,7 +6,6 @@ namespace SchemaStore
 {
     public partial class AboutProduct : Form
     {
-        List<ProductDto> list = new List<ProductDto>();
 
         public AboutProduct()
         {
