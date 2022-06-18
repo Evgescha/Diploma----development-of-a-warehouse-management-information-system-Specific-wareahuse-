@@ -96,10 +96,25 @@ namespace SchemaStore
             {
                 addCountProductToStoreInWarehouseOrAddNewLine(productNN, count);
             }
+            updateVirtualRemainsInWarehouse();
 
             this.товарыПоставкиTableAdapter.Fill(this.databaseDataSet.ТоварыПоставки);
             updateInfoAboutSelectedPRoduct(null, null);
 
+        }
+
+
+
+        private void updateVirtualRemainsInWarehouse()
+        {
+            if (dataGridView4.RowCount != 0)
+            {
+                int virtualGet = int.Parse(dataGridView4[4, 0].Value.ToString());
+                int virtualSell = int.Parse(dataGridView4[3, 0].Value.ToString());
+                dataGridView4[5, 0].Value = virtualGet - virtualSell;
+                складBindingSource.EndEdit();
+                складTableAdapter.Update(databaseDataSet.Склад);
+            }
         }
 
         private bool isAllFill()
@@ -247,6 +262,7 @@ namespace SchemaStore
                 {
                     addCountProductToStoreInWarehouseOrAddNewLine(productNN, -count);
                 }
+                updateVirtualRemainsInWarehouse();
 
                 this.товарыПоставкиTableAdapter.Fill(this.databaseDataSet.ТоварыПоставки);
                 updateInfoAboutSelectedPRoduct(null, null);
