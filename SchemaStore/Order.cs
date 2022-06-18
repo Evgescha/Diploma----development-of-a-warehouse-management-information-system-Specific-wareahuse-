@@ -206,32 +206,44 @@ namespace SchemaStore
         {
             try
             {
-                int count = textBox1.Text.Length == 0 ? 0 : int.Parse(textBox1.Text);
+                int count;
                 double price;
-                if (dataGridView4.RowCount > 0)
+                getPriceByProductCount(out count, out price);
+                if (textBox2.Text.Equals(textBox3.Text))
                 {
-                    if (count <= 9)
-                        price = double.Parse(dataGridView4[5, 0].Value.ToString());
-                    else if (count <= 49)
-                        price = double.Parse(dataGridView4[6, 0].Value.ToString());
-                    else if (count <= 99)
-                        price = double.Parse(dataGridView4[7, 0].Value.ToString());
-                    else
-                        price = double.Parse(dataGridView4[8, 0].Value.ToString());
+                    textBox2.Text = price + "";
+                    textBox3.Text = price + "";
                 }
-                else
-                {
-                    price = 0;
+                else {
+                    textBox2.Text = price + "";
                 }
-                textBox2.Text = price + "";
-                textBox3.Text = price + "";
 
-                double sum = count * price;
+                double sum = count * double.Parse(textBox3.Text);
                 textBox4.Text = sum + "";
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void getPriceByProductCount(out int count, out double price)
+        {
+            count = textBox1.Text.Length == 0 ? 0 : int.Parse(textBox1.Text);
+            if (dataGridView4.RowCount > 0)
+            {
+                if (count <= 9)
+                    price = double.Parse(dataGridView4[5, 0].Value.ToString());
+                else if (count <= 49)
+                    price = double.Parse(dataGridView4[6, 0].Value.ToString());
+                else if (count <= 99)
+                    price = double.Parse(dataGridView4[7, 0].Value.ToString());
+                else
+                    price = double.Parse(dataGridView4[8, 0].Value.ToString());
+            }
+            else
+            {
+                price = 0;
             }
         }
 
@@ -296,7 +308,7 @@ namespace SchemaStore
                     w3.Text = "0";
                     w4.Text = "0";
                 }
-
+                textBox3.Text = textBox2.Text;
                 countOrPriceChanged(null, null);
             }
             catch (Exception ex) { }
