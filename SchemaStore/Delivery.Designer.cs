@@ -55,7 +55,14 @@
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.товарBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.поставкаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.товарDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.товарBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.databaseDataSet2 = new SchemaStore.DatabaseDataSet();
+            this.количествоDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ценаЗаШтDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.суммаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.поставкаТоварыПоставкиBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigator2 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem1 = new System.Windows.Forms.ToolStripButton();
@@ -69,6 +76,7 @@
             this.bindingNavigatorMoveNextItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.товарBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -114,15 +122,7 @@
             this.товарыПоставкиTableAdapter = new SchemaStore.DatabaseDataSetTableAdapters.ТоварыПоставкиTableAdapter();
             this.складTableAdapter = new SchemaStore.DatabaseDataSetTableAdapters.СкладTableAdapter();
             this.товарTableAdapter = new SchemaStore.DatabaseDataSetTableAdapters.ТоварTableAdapter();
-            this.товарBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.товарTableAdapter2 = new SchemaStore.DatabaseDataSetTableAdapters.ТоварTableAdapter();
-            this.databaseDataSet2 = new SchemaStore.DatabaseDataSet();
-            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.поставкаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.товарDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.количествоDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ценаЗаШтDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.суммаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.поставкаBindingSource)).BeginInit();
@@ -131,17 +131,17 @@
             this.bindingNavigator1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.товарBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.товарBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.поставкаТоварыПоставкиBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator2)).BeginInit();
             this.bindingNavigator2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.товарBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.товарBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.складBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.складТоварНнИНазваниеBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.товарBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -388,10 +388,70 @@
             this.dataGridView2.TabIndex = 2;
             this.dataGridView2.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView2_DataError);
             // 
-            // товарBindingSource1
+            // iDDataGridViewTextBoxColumn1
             // 
-            this.товарBindingSource1.DataMember = "Товар";
-            this.товарBindingSource1.DataSource = this.databaseDataSet;
+            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
+            this.iDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn1.Visible = false;
+            this.iDDataGridViewTextBoxColumn1.Width = 43;
+            // 
+            // поставкаDataGridViewTextBoxColumn
+            // 
+            this.поставкаDataGridViewTextBoxColumn.DataPropertyName = "Поставка";
+            this.поставкаDataGridViewTextBoxColumn.HeaderText = "Поставка";
+            this.поставкаDataGridViewTextBoxColumn.Name = "поставкаDataGridViewTextBoxColumn";
+            this.поставкаDataGridViewTextBoxColumn.ReadOnly = true;
+            this.поставкаDataGridViewTextBoxColumn.Visible = false;
+            this.поставкаDataGridViewTextBoxColumn.Width = 81;
+            // 
+            // товарDataGridViewTextBoxColumn
+            // 
+            this.товарDataGridViewTextBoxColumn.DataPropertyName = "Товар";
+            this.товарDataGridViewTextBoxColumn.DataSource = this.товарBindingSource2;
+            this.товарDataGridViewTextBoxColumn.DisplayMember = "Наименование";
+            this.товарDataGridViewTextBoxColumn.HeaderText = "Товар";
+            this.товарDataGridViewTextBoxColumn.Name = "товарDataGridViewTextBoxColumn";
+            this.товарDataGridViewTextBoxColumn.ReadOnly = true;
+            this.товарDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.товарDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.товарDataGridViewTextBoxColumn.ValueMember = "НН";
+            this.товарDataGridViewTextBoxColumn.Width = 63;
+            // 
+            // товарBindingSource2
+            // 
+            this.товарBindingSource2.DataMember = "Товар";
+            this.товарBindingSource2.DataSource = this.databaseDataSet2;
+            // 
+            // databaseDataSet2
+            // 
+            this.databaseDataSet2.DataSetName = "DatabaseDataSet";
+            this.databaseDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // количествоDataGridViewTextBoxColumn
+            // 
+            this.количествоDataGridViewTextBoxColumn.DataPropertyName = "Количество";
+            this.количествоDataGridViewTextBoxColumn.HeaderText = "Количество";
+            this.количествоDataGridViewTextBoxColumn.Name = "количествоDataGridViewTextBoxColumn";
+            this.количествоDataGridViewTextBoxColumn.ReadOnly = true;
+            this.количествоDataGridViewTextBoxColumn.Width = 91;
+            // 
+            // ценаЗаШтDataGridViewTextBoxColumn
+            // 
+            this.ценаЗаШтDataGridViewTextBoxColumn.DataPropertyName = "ЦенаЗаШт";
+            this.ценаЗаШтDataGridViewTextBoxColumn.HeaderText = "ЦенаЗаШт";
+            this.ценаЗаШтDataGridViewTextBoxColumn.Name = "ценаЗаШтDataGridViewTextBoxColumn";
+            this.ценаЗаШтDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ценаЗаШтDataGridViewTextBoxColumn.Width = 85;
+            // 
+            // суммаDataGridViewTextBoxColumn
+            // 
+            this.суммаDataGridViewTextBoxColumn.DataPropertyName = "Сумма";
+            this.суммаDataGridViewTextBoxColumn.HeaderText = "Сумма";
+            this.суммаDataGridViewTextBoxColumn.Name = "суммаDataGridViewTextBoxColumn";
+            this.суммаDataGridViewTextBoxColumn.ReadOnly = true;
+            this.суммаDataGridViewTextBoxColumn.Width = 66;
             // 
             // поставкаТоварыПоставкиBindingSource
             // 
@@ -511,6 +571,11 @@
             // 
             this.bindingNavigatorSeparator5.Name = "bindingNavigatorSeparator5";
             this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 25);
+            // 
+            // товарBindingSource1
+            // 
+            this.товарBindingSource1.DataMember = "Товар";
+            this.товарBindingSource1.DataSource = this.databaseDataSet;
             // 
             // button1
             // 
@@ -802,7 +867,7 @@
             this.ожидаетсяОтПоставщикаDataGridViewTextBoxColumn,
             this.виртуальныйОстатокDataGridViewTextBoxColumn});
             this.dataGridView4.DataSource = this.складBindingSource;
-            this.dataGridView4.Location = new System.Drawing.Point(486, 193);
+            this.dataGridView4.Location = new System.Drawing.Point(124, 212);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.Size = new System.Drawing.Size(745, 49);
             this.dataGridView4.TabIndex = 43;
@@ -888,74 +953,9 @@
             // 
             this.товарTableAdapter.ClearBeforeFill = true;
             // 
-            // товарBindingSource2
-            // 
-            this.товарBindingSource2.DataMember = "Товар";
-            this.товарBindingSource2.DataSource = this.databaseDataSet2;
-            // 
             // товарTableAdapter2
             // 
             this.товарTableAdapter2.ClearBeforeFill = true;
-            // 
-            // databaseDataSet2
-            // 
-            this.databaseDataSet2.DataSetName = "DatabaseDataSet";
-            this.databaseDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // iDDataGridViewTextBoxColumn1
-            // 
-            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
-            this.iDDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn1.Visible = false;
-            this.iDDataGridViewTextBoxColumn1.Width = 43;
-            // 
-            // поставкаDataGridViewTextBoxColumn
-            // 
-            this.поставкаDataGridViewTextBoxColumn.DataPropertyName = "Поставка";
-            this.поставкаDataGridViewTextBoxColumn.HeaderText = "Поставка";
-            this.поставкаDataGridViewTextBoxColumn.Name = "поставкаDataGridViewTextBoxColumn";
-            this.поставкаDataGridViewTextBoxColumn.ReadOnly = true;
-            this.поставкаDataGridViewTextBoxColumn.Visible = false;
-            this.поставкаDataGridViewTextBoxColumn.Width = 81;
-            // 
-            // товарDataGridViewTextBoxColumn
-            // 
-            this.товарDataGridViewTextBoxColumn.DataPropertyName = "Товар";
-            this.товарDataGridViewTextBoxColumn.DataSource = this.товарBindingSource2;
-            this.товарDataGridViewTextBoxColumn.DisplayMember = "Наименование";
-            this.товарDataGridViewTextBoxColumn.HeaderText = "Товар";
-            this.товарDataGridViewTextBoxColumn.Name = "товарDataGridViewTextBoxColumn";
-            this.товарDataGridViewTextBoxColumn.ReadOnly = true;
-            this.товарDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.товарDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.товарDataGridViewTextBoxColumn.ValueMember = "НН";
-            this.товарDataGridViewTextBoxColumn.Width = 63;
-            // 
-            // количествоDataGridViewTextBoxColumn
-            // 
-            this.количествоDataGridViewTextBoxColumn.DataPropertyName = "Количество";
-            this.количествоDataGridViewTextBoxColumn.HeaderText = "Количество";
-            this.количествоDataGridViewTextBoxColumn.Name = "количествоDataGridViewTextBoxColumn";
-            this.количествоDataGridViewTextBoxColumn.ReadOnly = true;
-            this.количествоDataGridViewTextBoxColumn.Width = 91;
-            // 
-            // ценаЗаШтDataGridViewTextBoxColumn
-            // 
-            this.ценаЗаШтDataGridViewTextBoxColumn.DataPropertyName = "ЦенаЗаШт";
-            this.ценаЗаШтDataGridViewTextBoxColumn.HeaderText = "ЦенаЗаШт";
-            this.ценаЗаШтDataGridViewTextBoxColumn.Name = "ценаЗаШтDataGridViewTextBoxColumn";
-            this.ценаЗаШтDataGridViewTextBoxColumn.ReadOnly = true;
-            this.ценаЗаШтDataGridViewTextBoxColumn.Width = 85;
-            // 
-            // суммаDataGridViewTextBoxColumn
-            // 
-            this.суммаDataGridViewTextBoxColumn.DataPropertyName = "Сумма";
-            this.суммаDataGridViewTextBoxColumn.HeaderText = "Сумма";
-            this.суммаDataGridViewTextBoxColumn.Name = "суммаDataGridViewTextBoxColumn";
-            this.суммаDataGridViewTextBoxColumn.ReadOnly = true;
-            this.суммаDataGridViewTextBoxColumn.Width = 66;
             // 
             // Delivery
             // 
@@ -1001,18 +1001,18 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.товарBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.товарBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.поставкаТоварыПоставкиBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator2)).EndInit();
             this.bindingNavigator2.ResumeLayout(false);
             this.bindingNavigator2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.товарBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.товарBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.складBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.складТоварНнИНазваниеBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.товарBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

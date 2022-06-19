@@ -23,10 +23,10 @@ namespace SchemaStore
 
             initialData();
 
-            for (int i = 0; i < dataGridView3.Rows.Count-1; i++) {
+            for (int i = 0; i < dataGridView3.Rows.Count; i++) {
                 dataGridView6[0, i].Value = dataGridView1[0, i].Value;
                 dataGridView6[1, i].Value = dataGridView1[1, i].Value;
-                for (int j = 1; j < 8; j++) {
+                for (int j = 1; j <= 8; j++) {
                     dataGridView6[j+1, i].Value = dataGridView3[j, i].Value;
                 }
             }

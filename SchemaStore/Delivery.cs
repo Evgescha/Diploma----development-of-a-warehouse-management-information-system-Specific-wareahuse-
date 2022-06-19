@@ -314,6 +314,8 @@ namespace SchemaStore
                 {
                     this.складTableAdapter.FillByProductId(this.databaseDataSet.Склад, int.Parse(dataGridView2.Rows[i].Cells[2].Value.ToString()));
                     moveProductFromDoneToInProgres(int.Parse(dataGridView2.Rows[i].Cells[2].Value.ToString()), int.Parse(dataGridView2.Rows[i].Cells[3].Value.ToString()));
+
+                    updateVirtualRemainsInWarehouse();
                 }
                 //update count of product in labels
                 updateInfoAboutSelectedPRoduct(null, null);
@@ -350,6 +352,8 @@ namespace SchemaStore
                 {
                     this.складTableAdapter.FillByProductId(this.databaseDataSet.Склад, int.Parse(dataGridView2.Rows[i].Cells[2].Value.ToString()));
                     moveProductFromInProgresToDone(int.Parse(dataGridView2.Rows[i].Cells[2].Value.ToString()), int.Parse(dataGridView2.Rows[i].Cells[3].Value.ToString()));
+
+                    updateVirtualRemainsInWarehouse();
                 }
                 //update count of product in labels
                 updateInfoAboutSelectedPRoduct(null, null);
